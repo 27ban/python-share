@@ -1,1 +1,2 @@
-# python-share
+# 前言
+##### 记录一下对python的理解
