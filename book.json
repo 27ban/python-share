@@ -8,10 +8,14 @@
         "-lunr",
         "-search",
         "search-pro",
-        "splitter"
+        "splitter",
+        "ga"
     ],
     "pluginsConfig": {
-        "expandable-chapters-small": {}
+        "expandable-chapters-small": {},
+        "ga": {
+            "token": "UA-141902433-1"
+        }
     },
     "styles": {
         "website": "website.css"
