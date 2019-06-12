@@ -341,5 +341,8 @@ print(type(L))
 ```
 
 ###2.7:Python中的type 和 object
+
+![JPG](\images\python_type_object.jpg)
+
 参考链接
 [--CSDN--](https://blog.csdn.net/piglite/article/details/78294112)
