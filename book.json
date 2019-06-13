@@ -9,12 +9,16 @@
         "-search",
         "search-pro",
         "splitter",
-        "ga"
+        "ga",
+        "theme-comscore"
     ],
     "pluginsConfig": {
         "expandable-chapters-small": {},
         "ga": {
             "token": "UA-141902433-1"
+        },
+        "theme-default": {
+            "showLevel": true
         }
     },
     "styles": {
