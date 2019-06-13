@@ -281,6 +281,13 @@ print(captcha(<span class="hljs-number">6</span>))
       total += days_of_month[index]
   <span class="hljs-keyword">return</span> total + date
 print(which_day(<span class="hljs-number">2019</span>,<span class="hljs-number">12</span>,<span class="hljs-number">31</span>))
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">which_day2</span><span class="hljs-params">(s)</span>:</span>
+  d = pd.to_datetime(s,<span class="hljs-string">&quot;coerce&quot;</span>)
+  <span class="hljs-keyword">if</span> str(d)==<span class="hljs-string">&apos;NaT&apos;</span>:
+      <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>
+  <span class="hljs-keyword">return</span> d.dayofyear
+print(which_day2(<span class="hljs-string">&apos;2019-12-12&apos;</span>))
 </code></pre>
 </li>
 <li>&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7ED9;&#x5B9A;&#x6587;&#x4EF6;&#x540D;&#x7684;&#x540E;&#x7F00;&#x540D;&#x3002;<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_filename</span><span class="hljs-params">(name)</span>:</span>
@@ -300,7 +307,7 @@ print(get_filename(name))
 <span class="hljs-comment">#    &#x5DE6;&#x62EC;&#x53F7;&#x5FC5;&#x987B;&#x4EE5;&#x6B63;&#x786E;&#x7684;&#x987A;&#x5E8F;&#x95ED;&#x5408;&#x3002;</span>
 <span class="hljs-comment">#    &#x6CE8;&#x610F;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x53EF;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6709;&#x6548;&#x5B57;&#x7B26;&#x4E32;&#x3002;</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isValid1</span><span class="hljs-params">(s)</span>:</span>
-  d = {<span class="hljs-string">&apos;)&apos;</span>:<span class="hljs-string">&apos;(&apos;</span>,<span class="hljs-string">&apos;]&apos;</span>:<span class="hljs-string">&apos;]&apos;</span>,<span class="hljs-string">&apos;}&apos;</span>:<span class="hljs-string">&apos;{&apos;</span>}
+  d = {<span class="hljs-string">&apos;)&apos;</span>:<span class="hljs-string">&apos;(&apos;</span>,<span class="hljs-string">&apos;]&apos;</span>:<span class="hljs-string">&apos;[&apos;</span>,<span class="hljs-string">&apos;}&apos;</span>:<span class="hljs-string">&apos;{&apos;</span>}
   stack = [<span class="hljs-keyword">None</span>]
   <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> s:
       <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> d <span class="hljs-keyword">and</span> d[i]==stack[<span class="hljs-number">-1</span>]:
@@ -431,7 +438,7 @@ emps = [Manager(<span class="hljs-string">&apos;a&apos;</span>),Programmer(<span
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.python练习","level":"1.5","depth":1,"next":{"title":"5.异步编程","level":"1.6","depth":1,"path":"Chapter5.md","ref":"Chapter5.md","articles":[]},"previous":{"title":"3.闭包+上下文管理","level":"1.4","depth":1,"path":"Chapter3.md","ref":"Chapter3.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"Chapter4.md","mtime":"2019-06-12T06:30:10.941Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-12T08:53:50.222Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.python练习","level":"1.5","depth":1,"next":{"title":"5.异步编程","level":"1.6","depth":1,"path":"Chapter5.md","ref":"Chapter5.md","articles":[]},"previous":{"title":"3.闭包+上下文管理","level":"1.4","depth":1,"path":"Chapter3.md","ref":"Chapter3.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"Chapter4.md","mtime":"2019-06-13T06:40:49.387Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-13T06:41:17.883Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
