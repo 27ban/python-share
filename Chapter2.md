@@ -345,4 +345,4 @@ print(type(L))
 ![JPG](\images\python_type_object.jpg)
 
 参考链接
-[--CSDN--](https://blog.csdn.net/piglite/article/details/78294112)
+[CSDN](https://blog.csdn.net/piglite/article/details/78294112)
