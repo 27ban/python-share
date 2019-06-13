@@ -37,6 +37,13 @@ def which_day(year, month, date):
         total += days_of_month[index]
     return total + date
 print(which_day(2019,12,31))
+import pandas as pd
+def which_day2(s):
+    d = pd.to_datetime(s,"coerce")
+    if str(d)=='NaT':
+        return ""
+    return d.dayofyear
+print(which_day2('2019-12-12'))
 ```
 * 设计一个函数返回给定文件名的后缀名。
 ```py
@@ -59,7 +66,7 @@ def times(h,m):
 #    左括号必须以正确的顺序闭合。
 #    注意空字符串可被认为是有效字符串。
 def isValid1(s):
-    d = {')':'(',']':']','}':'{'}
+    d = {')':'(',']':'[','}':'{'}
     stack = [None]
     for i in s:
         if i in d and d[i]==stack[-1]:
