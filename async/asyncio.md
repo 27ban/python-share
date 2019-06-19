@@ -40,6 +40,7 @@ tasks = [hello(), hello()]
 loop.run_until_complete(asyncio.wait(tasks))
 loop.close()
 ```
+多线程读写变量
 ```py
 import time,threading
 start =time.time()
@@ -61,17 +62,48 @@ print(balance)
 print(time.time()-start)
 ```
 
+协程读写变量
 ```py
-import aysncio
+import asyncio
 import time
 start = time.time()
 balance = 0
 def change_it():
+    r = ""
     global balance
-    yield balance
-    balance +=1
-    balance -=1
+    while True:
+        n = yield balance
+        balance +=n
+        balance -=n
+def run_thread(c):
+    c.send(None)
+	for i in range(10000000):
+		n = c.send(i)
+    c.close()
+c = change_it()
+run_thread(c)
+print(balance)
+print(time.time()-start)
 ```
+```py
+import asyncio
+import time
+balance = 0 
+start = time.time()
+async def change_it(n):
+    global balance
+    balance +=n
+    balance -=n
+async def run():
+    for n in range(10000000):
+        await change_it(n)
+loop = asyncio.get_event_loop()
+loop.run_until_complete(run())
+loop.close()
+print(balance)
+print(time.time()-start)
+```
+
 
 #### async和 await
 
