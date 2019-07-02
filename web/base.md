@@ -201,13 +201,16 @@ def handle(self):
     handler.run(self.server.get_app())
 ```
 
+
 wsgiref/handlers
 ```py
-class BaseHandler:
-    # 分3步
-    # 1建立环境变量字典environ
-    # 2.设置状态吗和headers并返回response的body
-    # 3.将response返回给客户端
+class BaseHandler(object):
+    '''
+    分3步
+    1建立环境变量字典environ
+    2.设置状态吗和headers并返回response的body
+    3.将response返回给客户端
+    '''
     def run(self, application):
         try:
             self.setup_environ()
@@ -227,7 +230,6 @@ class BaseHandler:
                 self.finish_content()
         finally:
             self.close()
-
     def finish_content(self):
         if not self.headers_sent:
             self.headers.setdefault('Content-Length', "0")
@@ -239,14 +241,12 @@ class BaseHandler:
         self.headers = self.headers_class(headers)
         status = self._convert_string_type(status, "Status")
         return self.write
-
     def send_headers(self):
         self.cleanup_headers()
         self.headers_sent = True
         if not self.origin_server or self.client_is_modern():
             self.send_preamble()
             self._write(bytes(self.headers))
-
     def write(self, data):
         if not self.status:
             raise AssertionError("write() before start_response()")
@@ -258,20 +258,6 @@ class BaseHandler:
         self._write(data)
         self._flush()
 
-    def send_preamble(self):
-        if self.origin_server:
-            if self.client_is_modern():
-                self._write(('HTTP/%s %s\r\n' % (self.http_version,self.status)).encode('iso-8859-1))
-        else:
-            self._write(('Status: %s\r\n' % self.status).encode('iso-8859-1'))
-    def close(self):
-        try:
-            if hasattr(self.result,'close'):
-                self.result.close()
-        finally:
-            self.result = self.headers = self.status = self.environ = None
-            self.bytes_sent = 0; self.headers_sent = False
-
 class SimpleHandler(BaseHandler):
     def _write(self,data):
         result = self.stdout.write(data)
@@ -280,7 +266,6 @@ class SimpleHandler(BaseHandler):
             if not data:
                 break
             result = self.stdout.write(data)
-
     def _flush(self):
         self.stdout.flush()
         self._flush = self.stdout.flush
