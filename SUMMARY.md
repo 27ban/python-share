@@ -18,5 +18,5 @@
     * [Flask框架](web/flask.md)
 * [数据结构](data-structure/readme.md)
     * [排序](data-structure/sort.md)
-    * [栈/队列](data-structure/stock-and-queue.md)
+    * [栈/队列](data-structure/stock.md)
     * [链表](data-structure/node.md)
