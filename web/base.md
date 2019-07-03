@@ -272,3 +272,76 @@ class SimpleHandler(BaseHandler):
 ```
 flask和django都用到了wsgiref模块，django是直接调用的，flask是间接调用的，由于对性能的需求，wsgiref很少用于线上环境，线上一般用nginx+gunicorn+flask搭配使用。
 wsgiref设计时wsgi 服务器和wsgi app 是分开的，也就是说我们在部署项目的时候可以不用自带的wsgi sever，使用python web的开发也是很灵活的。不同的wsgi server 的区别在于多线程、多进程、协程。而wsgi app通常就是根据请求的路由不同，执行不同的view视图函数。
+
+
+flask,django默认都是单进程多线程的
+
+```py
+from flask import Flask
+import os
+import time
+import threading
+app = Flask(__name__)
+
+@app.route('/hello',methods=["GET"])
+def index():
+    time.sleep(3)
+    print(os.getpid())
+    print(threading.current_thread().name)
+    return "hello world"
+
+if __name__=="__main__":
+    app.run(host="0.0.0.0",port=8000)
+```
+```py
+from django.http import HttpResponse
+import os
+import threading
+import time
+def hello(request):
+    time.sleep(3)
+    print(os.getpid())
+    print(threading.current_thread().name)
+    return HttpResponse("Hello world ! ")
+```
+
+torndao 默认是单进程单线程，但是支持异步
+
+```py
+import tornado.ioloop
+import tornado.web
+import os
+import threading
+import time
+
+class MainHandler(tornado.web.RequestHandler):
+    def get(self):
+        time.sleep(3)
+        print(os.getpid())
+        print(threading.current_thread().name)
+        self.write("Hello, world")
+
+def make_app():
+    return tornado.web.Application([(r"/hello", MainHandler),])
+
+if __name__ == "__main__":
+    app = make_app()
+    app.listen(8000)
+    tornado.ioloop.IOLoop.current().start()
+```
+测试用例
+```py
+from multiprocessing import Pool
+import time
+import requests
+start = time.time()
+def get():
+    res =requests.get("http://127.0.0.1:8000/hello")
+    print(res.text)
+p = Pool(5)
+for i in range(5):
+    p.apply_async(get)
+p.close()
+p.join()
+print(time.time()-start)
+```
