@@ -725,6 +725,70 @@ httpd.serve_forever()
 </code></pre>
 <p>flask&#x548C;django&#x90FD;&#x7528;&#x5230;&#x4E86;wsgiref&#x6A21;&#x5757;&#xFF0C;django&#x662F;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x7684;&#xFF0C;flask&#x662F;&#x95F4;&#x63A5;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x7531;&#x4E8E;&#x5BF9;&#x6027;&#x80FD;&#x7684;&#x9700;&#x6C42;&#xFF0C;wsgiref&#x5F88;&#x5C11;&#x7528;&#x4E8E;&#x7EBF;&#x4E0A;&#x73AF;&#x5883;&#xFF0C;&#x7EBF;&#x4E0A;&#x4E00;&#x822C;&#x7528;nginx+gunicorn+flask&#x642D;&#x914D;&#x4F7F;&#x7528;&#x3002;
 wsgiref&#x8BBE;&#x8BA1;&#x65F6;wsgi &#x670D;&#x52A1;&#x5668;&#x548C;wsgi app &#x662F;&#x5206;&#x5F00;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6211;&#x4EEC;&#x5728;&#x90E8;&#x7F72;&#x9879;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x81EA;&#x5E26;&#x7684;wsgi sever&#xFF0C;&#x4F7F;&#x7528;python web&#x7684;&#x5F00;&#x53D1;&#x4E5F;&#x662F;&#x5F88;&#x7075;&#x6D3B;&#x7684;&#x3002;&#x4E0D;&#x540C;&#x7684;wsgi server &#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x591A;&#x7EBF;&#x7A0B;&#x3001;&#x591A;&#x8FDB;&#x7A0B;&#x3001;&#x534F;&#x7A0B;&#x3002;&#x800C;wsgi app&#x901A;&#x5E38;&#x5C31;&#x662F;&#x6839;&#x636E;&#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x7531;&#x4E0D;&#x540C;&#xFF0C;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;view&#x89C6;&#x56FE;&#x51FD;&#x6570;&#x3002;</p>
+<p>flask,django&#x9ED8;&#x8BA4;&#x90FD;&#x662F;&#x5355;&#x8FDB;&#x7A0B;&#x591A;&#x7EBF;&#x7A0B;&#x7684;</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> threading
+app = Flask(__name__)
+
+<span class="hljs-meta">@app.route(&apos;/hello&apos;,methods=[&quot;GET&quot;])</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span><span class="hljs-params">()</span>:</span>
+    time.sleep(<span class="hljs-number">3</span>)
+    print(os.getpid())
+    print(threading.current_thread().name)
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello world&quot;</span>
+
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app.run(host=<span class="hljs-string">&quot;0.0.0.0&quot;</span>,port=<span class="hljs-number">8000</span>)
+</code></pre>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponse
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> threading
+<span class="hljs-keyword">import</span> time
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hello</span><span class="hljs-params">(request)</span>:</span>
+    time.sleep(<span class="hljs-number">3</span>)
+    print(os.getpid())
+    print(threading.current_thread().name)
+    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;Hello world ! &quot;</span>)
+</code></pre>
+<p>torndao &#x9ED8;&#x8BA4;&#x662F;&#x5355;&#x8FDB;&#x7A0B;&#x5355;&#x7EBF;&#x7A0B;&#xFF0C;&#x4F46;&#x662F;&#x652F;&#x6301;&#x5F02;&#x6B65;</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> tornado.ioloop
+<span class="hljs-keyword">import</span> tornado.web
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> threading
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainHandler</span><span class="hljs-params">(tornado.web.RequestHandler)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self)</span>:</span>
+        time.sleep(<span class="hljs-number">3</span>)
+        print(os.getpid())
+        print(threading.current_thread().name)
+        self.write(<span class="hljs-string">&quot;Hello, world&quot;</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">make_app</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> tornado.web.Application([(<span class="hljs-string">r&quot;/hello&quot;</span>, MainHandler),])
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    app = make_app()
+    app.listen(<span class="hljs-number">8000</span>)
+    tornado.ioloop.IOLoop.current().start()
+</code></pre>
+<p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Pool
+<span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> requests
+start = time.time()
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">()</span>:</span>
+    res =requests.get(<span class="hljs-string">&quot;http://127.0.0.1:8000/hello&quot;</span>)
+    print(res.text)
+p = Pool(<span class="hljs-number">5</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):
+    p.apply_async(get)
+p.close()
+p.join()
+print(time.time()-start)
+</code></pre>
 
                                 
                                 </section>
@@ -768,7 +832,7 @@ wsgiref&#x8BBE;&#x8BA1;&#x65F6;wsgi &#x670D;&#x52A1;&#x5668;&#x548C;wsgi app &#x
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"web基础","level":"1.4.2","depth":2,"next":{"title":"Django框架","level":"1.4.3","depth":2,"path":"web/django.md","ref":"web/django.md","articles":[]},"previous":{"title":"计算机网络","level":"1.4.1","depth":2,"path":"web/network.md","ref":"web/network.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"web/base.md","mtime":"2019-07-02T08:20:06.272Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-02T08:20:23.501Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"web基础","level":"1.4.2","depth":2,"next":{"title":"Django框架","level":"1.4.3","depth":2,"path":"web/django.md","ref":"web/django.md","articles":[]},"previous":{"title":"计算机网络","level":"1.4.1","depth":2,"path":"web/network.md","ref":"web/network.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"web/base.md","mtime":"2019-07-03T08:08:22.634Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-03T08:09:31.924Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
