@@ -1,5 +1,6 @@
-## 冒泡排序
+#### 冒泡排序
 
+![PNG](\images\bubblesort.png)
 ```py
 def bubbleSort(alist):
     for passnum in range(len(alist)-1, 0, -1):
@@ -9,8 +10,7 @@ def bubbleSort(alist):
     return alist
 ```
 
-
-## 短冒泡排序
+#### 短冒泡排序
 
 ```py
 def shortBubbleSort(alist):
@@ -26,8 +26,9 @@ def shortBubbleSort(alist):
     return alist
 ```
 
-## 选择排序
+#### 选择排序
 
+![PNG](\images\selectsort.png)
 ```py
 def selectionSort(alist):
     for fillslot in range(len(alist)-1, 0, -1):
@@ -39,8 +40,9 @@ def selectionSort(alist):
     return alist
 ```
 
-## 插入排序
+#### 插入排序
 
+![PNG](\images\insertsort.png)
 ```py
 def insertionSort(alist):
     for index in range(1, len(alist)):
@@ -53,8 +55,9 @@ def insertionSort(alist):
     return alist
 ```
 
-## 快速排序
+#### 快速排序
 
+![PNG](\images\quicksort.png)
 ```py
 def quickSort(alist):
     quickSortHelper(alist, 0, len(alist)-1)
@@ -84,7 +87,7 @@ def partition(alist, first, last):
     return rightmark
 ```
 
-## 希尔排序
+#### 希尔排序
 
 ```py
 def shellSort(alist):
@@ -105,8 +108,10 @@ def gapInsertionSort(alist, start, gap):
         alist[position] = currentvalue
 ```
 
-## 归并排序
+#### 归并排序
 
+
+![PNG](\images\mergesort.png)
 ```py
 def mergeSort(alist):
     if len(alist) > 1:
@@ -141,3 +146,22 @@ alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 mergeSort(alist)
 print(alist)
 ```
+
+
+#### 排序算法分析
+
+![PNG](\images\sortsummary.png)
+
+
+关于稳定性:
+* 排序后 2 个相等键值的顺序和排序之前它们的顺序相同
+* 稳定的排序算法：冒泡排序、插入排序、归并排序和基数排序
+* 不是稳定的排序算法：选择排序、快速排序、希尔排序、堆排序
+
+
+名词解释:
+* n：数据规模
+* k：“桶”的个数
+* In-place：占用常数内存，不占用额外内存
+* Out-place：占用额外内存
+
