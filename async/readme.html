@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>多进程 · python_share</title>
+        <title>Python异步 · python_share</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="asyncio.html" />
+    <link rel="next" href="base.html" />
     
     
-    <link rel="prev" href="threading.html" />
+    <link rel="prev" href="../python/chapter4.html" />
     
 
     </head>
@@ -197,7 +197,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="readme.html">
+        <li class="chapter active" data-level="1.3" data-path="readme.html">
             
                 <a href="readme.html">
             
@@ -243,7 +243,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.3" data-path="multiprocess.html">
+        <li class="chapter " data-level="1.3.3" data-path="multiprocess.html">
             
                 <a href="multiprocess.html">
             
@@ -425,7 +425,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >多进程</a>
+        <a href=".." >Python异步</a>
     </h1>
 </div>
 
@@ -440,86 +440,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h4 id="&#x591A;&#x8FDB;&#x7A0B;">&#x591A;&#x8FDB;&#x7A0B;</h4>
-<p>Join&#x7528;&#x6CD5;&#x540C;&#x591A;&#x7EBF;&#x7A0B;&#x4E00;&#x6837;</p>
-<pre><code class="lang-py"><span class="hljs-keyword">import</span> os
-<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Process
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run_pro</span><span class="hljs-params">(num)</span>:</span>
-    print(os.getpid(),num)
-
-print(<span class="hljs-string">&quot;Main Process&quot;</span>,os.getpid())
-p_list = []
-<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>):
-    p_list.append(Process(target=run_pro,args=(i,)))
-<span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> p_list:
-    <span class="hljs-comment"># p.daemon = False</span>
-    p.start()
-<span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> p_list:
-    p.join()
-print(<span class="hljs-string">&quot;Main Process&quot;</span>,os.getpid())
-</code></pre>
-<h4 id="&#x8FDB;&#x7A0B;&#x6C60;pool">&#x8FDB;&#x7A0B;&#x6C60;Pool</h4>
-<pre><code class="lang-py"><span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Pool
-<span class="hljs-keyword">import</span> os
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run_pro</span><span class="hljs-params">(num)</span>:</span>
-    print(os.getpid(),num)
-print(os.getpid(),<span class="hljs-string">&quot;Main process&quot;</span>)
-p = Pool()
-<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):
-    <span class="hljs-comment"># p.apply(run_pro,args=(i,))</span>
-    p.apply_async(run_pro,args=(i,))
-p.close()
-p.join()
-print(<span class="hljs-string">&quot;Main Process&quot;</span>)
-</code></pre>
-<p>Pool&#x7531;&#x4E24;&#x79CD;&#x6A21;&#x5F0F;&#xFF0C;&#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E;&#xFF0C;&#x963B;&#x585E;&#x5373;&#x6DFB;&#x52A0;&#x8FDB;&#x7A0B;&#x540E;&#x5FC5;&#x987B;&#x7B49;&#x5F85;&#x524D;&#x9762;&#x7684;&#x8FDB;&#x7A0B;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x624D;&#x6267;&#x884C;&#xFF0C;&#x975E;&#x963B;&#x585E;&#x5219;&#x76F8;&#x53CD;&#x3002;</p>
-<h4 id="&#x591A;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;">&#x591A;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;</h4>
-<h5 id="&#x591A;&#x8FDB;&#x7A0B;&#x9501;lock">&#x591A;&#x8FDB;&#x7A0B;&#x9501;Lock</h5>
-<pre><code class="lang-py"><span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Process, Lock
-<span class="hljs-keyword">import</span> time
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyProcess</span><span class="hljs-params">(Process)</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, loop, lock)</span>:</span>
-        Process.__init__(self)
-        self.loop = loop
-        self.lock = lock
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(self)</span>:</span>
-        <span class="hljs-keyword">for</span> count <span class="hljs-keyword">in</span> range(self.loop):
-            time.sleep(<span class="hljs-number">0.1</span>)
-            self.lock.acquire()
-            print(<span class="hljs-string">&apos;Pid: &apos;</span> + str(self.pid) + <span class="hljs-string">&apos; LoopCount: &apos;</span> + str(count))
-            self.lock.release()
-lock = Lock()
-<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>, <span class="hljs-number">15</span>):
-    p = MyProcess(i, lock)
-    p.start()
-</code></pre>
-<h5 id="queue&#x961F;&#x5217;">Queue&#x961F;&#x5217;</h5>
-<pre><code class="lang-py"><span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Process,Queue
-<span class="hljs-keyword">import</span> time
-buffer = Queue(<span class="hljs-number">10</span>)
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Producer</span><span class="hljs-params">(Process)</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(self)</span>:</span>
-        <span class="hljs-keyword">global</span> buffer
-        <span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):
-            print(<span class="hljs-string">&quot;Producer&quot;</span>,num)
-            buffer.put(num)
-            time.sleep(<span class="hljs-number">2</span>)
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Consumer</span><span class="hljs-params">(Process)</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(self)</span>:</span>
-        <span class="hljs-keyword">global</span> buffer
-        <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
-            print(<span class="hljs-string">&quot;Consumer&quot;</span>,buffer.get())
-            time.sleep(<span class="hljs-number">2</span>)
-p = Producer()
-c = Consumer()
-p.daemon = c.daemon = <span class="hljs-keyword">True</span>
-p.start()
-c.start()
-p.join()
-<span class="hljs-comment"># c&#x8FDB;&#x7A0B;&#x91CC;&#x662F;&#x6B7B;&#x5FAA;&#x73AF;&#xFF0C;&#x65E0;&#x6CD5;&#x7B49;&#x5F85;&#x5176;&#x7ED3;&#x675F;&#xFF0C;&#x53EA;&#x80FD;&#x5F3A;&#x884C;&#x7EC8;&#x6B62;</span>
-c.terminate()
-</code></pre>
-
+                                
                                 
                                 </section>
                             
@@ -546,12 +467,12 @@ c.terminate()
 
             
                 
-                <a href="threading.html" class="navigation navigation-prev " aria-label="Previous page: 多线程">
+                <a href="../python/chapter4.html" class="navigation navigation-prev " aria-label="Previous page: python练习">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="asyncio.html" class="navigation navigation-next " aria-label="Next page: 协程">
+                <a href="base.html" class="navigation navigation-next " aria-label="Next page: 计算机基础">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -562,7 +483,7 @@ c.terminate()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"多进程","level":"1.3.3","depth":2,"next":{"title":"协程","level":"1.3.4","depth":2,"path":"async/asyncio.md","ref":"async/asyncio.md","articles":[]},"previous":{"title":"多线程","level":"1.3.2","depth":2,"path":"async/threading.md","ref":"async/threading.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"async/multiprocess.md","mtime":"2019-06-19T06:47:08.362Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T05:19:17.354Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Python异步","level":"1.3","depth":1,"next":{"title":"计算机基础","level":"1.3.1","depth":2,"path":"async/base.md","ref":"async/base.md","articles":[]},"previous":{"title":"python练习","level":"1.2.4","depth":2,"path":"python/chapter4.md","ref":"python/chapter4.md","articles":[]},"dir":"neutral"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"async/readme.md","mtime":"2019-07-10T03:31:06.469Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T05:19:17.354Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
