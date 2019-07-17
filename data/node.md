@@ -81,7 +81,6 @@ def sortList(head):
     left=sortList(left)
     right=sortList(right)
     return merge(left,right)
-    
 def merge(left,right):
     head=Node(0)
     pre=head
