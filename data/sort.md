@@ -7,7 +7,6 @@ def bubbleSort(alist):
         for i in range(passnum):
             if alist[i] > alist[i+1]:
                 alist[i], alist[i+1] = alist[i+1], alist[i]
-    return alist
 ```
 
 #### 短冒泡排序
@@ -23,7 +22,6 @@ def shortBubbleSort(alist):
                 exchanges = True
                 alist[i], alist[i+1] = alist[i+1], alist[i]
         passnum = passnum-1
-    return alist
 ```
 
 #### 选择排序
@@ -37,7 +35,6 @@ def selectionSort(alist):
             if alist[location] > alist[positionOfMax]:
                 positionOfMax = location
         alist[fillslot], alist[positionOfMax] = alist[positionOfMax], alist[fillslot]
-    return alist
 ```
 
 #### 插入排序
@@ -52,7 +49,6 @@ def insertionSort(alist):
             alist[position] = alist[position-1]
             position = position-1
         alist[position] = currentValue
-    return alist
 ```
 
 #### 快速排序
