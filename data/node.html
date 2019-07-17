@@ -513,42 +513,43 @@
   <span class="hljs-keyword">return</span> node
 </code></pre>
 </li>
-<li>&#x94FE;&#x8868;&#x6392;&#x5E8F;
-```py<h1 id="&#x5F52;&#x5E76;&#x6392;&#x5E8F;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;onlogn">&#x5F52;&#x5E76;&#x6392;&#x5E8F;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(nlogn)</h1>
-def sortList(head):
-  if(head is None or head.next is None):<pre><code>  return head
-</code></pre>  pre=head
+<li>&#x94FE;&#x8868;&#x6392;&#x5E8F;<pre><code class="lang-py"><span class="hljs-comment"># &#x5F52;&#x5E76;&#x6392;&#x5E8F;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(nlogn)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sortList</span><span class="hljs-params">(head)</span>:</span>
+  <span class="hljs-keyword">if</span>(head <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span> <span class="hljs-keyword">or</span> head.next <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>):
+      <span class="hljs-keyword">return</span> head
+  pre=head
   slow=head
   fast=head
-  while(fast!=None and fast.next!=None):<pre><code>  pre=slow
-  slow=slow.next
-  fast=fast.next.next
-</code></pre>  left=head
+  <span class="hljs-keyword">while</span>(fast!=<span class="hljs-keyword">None</span> <span class="hljs-keyword">and</span> fast.next!=<span class="hljs-keyword">None</span>):
+      pre=slow
+      slow=slow.next
+      fast=fast.next.next
+  left=head
   right=pre.next
-  pre.next=None
+  pre.next=<span class="hljs-keyword">None</span>
   left=sortList(left)
   right=sortList(right)
-  return merge(left,right)</li>
+  <span class="hljs-keyword">return</span> merge(left,right)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">merge</span><span class="hljs-params">(left,right)</span>:</span>
+  head=Node(<span class="hljs-number">0</span>)
+  pre=head
+  <span class="hljs-keyword">while</span>(left <span class="hljs-keyword">and</span> right):
+      <span class="hljs-keyword">if</span>(left.val&lt;right.val):
+          pre.next=left
+          pre=left
+          left=left.next
+      <span class="hljs-keyword">else</span>:
+          pre.next=right
+          pre=right
+          right=right.next
+  <span class="hljs-keyword">if</span>(left <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>):
+      pre.next=right
+  <span class="hljs-keyword">else</span>:
+      pre.next=left
+  <span class="hljs-keyword">return</span> head.next
+</code></pre>
+&#x66F4;&#x591A;&#x94FE;&#x8868;&#x76F8;&#x5173;&#x4FE1;&#x606F;(<a href="https://leetcode-cn.com/tag/linked-list" target="_blank">https://leetcode-cn.com/tag/linked-list</a>)</li>
 </ul>
-<p>def merge(left,right):
-    head=Node(0)
-    pre=head
-    while(left and right):
-        if(left.val&lt;right.val):
-            pre.next=left
-            pre=left
-            left=left.next
-        else:
-            pre.next=right
-            pre=right
-            right=right.next
-    if(left is None):
-        pre.next=right
-    else:
-        pre.next=left
-    return head.next
-```
-&#x66F4;&#x591A;&#x94FE;&#x8868;&#x76F8;&#x5173;&#x4FE1;&#x606F;(<a href="https://leetcode-cn.com/tag/linked-list" target="_blank">https://leetcode-cn.com/tag/linked-list</a>)</p>
 
                                 
                                 </section>
@@ -592,7 +593,7 @@ def sortList(head):
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"链表","level":"1.5.3","depth":2,"next":{"title":"递归","level":"1.5.4","depth":2,"path":"data/recursion.md","ref":"data/recursion.md","articles":[]},"previous":{"title":"查找","level":"1.5.2","depth":2,"path":"data/search.md","ref":"data/search.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"data/node.md","mtime":"2019-07-17T07:46:55.160Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-17T07:47:07.693Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"链表","level":"1.5.3","depth":2,"next":{"title":"递归","level":"1.5.4","depth":2,"path":"data/recursion.md","ref":"data/recursion.md","articles":[]},"previous":{"title":"查找","level":"1.5.2","depth":2,"path":"data/search.md","ref":"data/search.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"data/node.md","mtime":"2019-07-17T08:01:56.730Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-17T08:02:27.580Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
