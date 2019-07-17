@@ -63,7 +63,6 @@ def reverseList(head):
     return node
 ```
 * 链表排序
-
 ```py
 # 归并排序，时间复杂度为O(nlogn)
 def sortList(head):
