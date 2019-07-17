@@ -58,3 +58,4 @@ def recMC(coinValueList,change):
    return minCoins
 print(recMC([1,5,10,25],63))
 ```
+运行很慢，代码还待优化

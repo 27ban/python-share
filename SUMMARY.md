@@ -18,4 +18,4 @@
     * [排序](data/sort.md)
     * [查找](data/search.md)
     * [链表](data/node.md)
-    * [递归和动态规划](data/recursion.md)
+    * [递归](data/recursion.md)
