@@ -1,4 +1,5 @@
 ### 多线程
+
 线程是最小的执行单元，一个进程由至少一个线程组成
 
 ```py
@@ -14,37 +15,40 @@ t = threading.Thread(target=loop,name="Loop")
 t.start()
 t.join()
 ```
-#### 多线程与多核CPU
+
+#### 多线程与多核 CPU
 
 ```py
 import threading,multiprocessing
 def loop():
-	x = 0 
+	x = 0
 	while True:
 		x +=2
 for i in range(multiprocessing.cpu_count()):
 	t = threading.Thread(target=loop)
 	t.start()
 ```
-发现多线程只在单个CPU上执行。为什么不能充分利用多核CPU呢？
+
+发现多线程只在单个 CPU 上执行。为什么不能充分利用多核 CPU 呢？
 
 #### GIL(全局解释锁)
 
-Python执行过程
+Python 执行过程
 
 写在源文件中的代码都是为了人类可读，机器根本不知道他是什么鬼，所以需要转化为机器认识的，这个过程就是编译。
-python同样也有编译的步骤，通常python把.py源文件编译成.pyc类型的字节码文件,和CPU指令类似，但是这个.pyc并不被cpu执行，而是由python虚拟机执行，这里的python虚拟机就是所说的python解释器。
+python 同样也有编译的步骤，通常 python 把.py 源文件编译成.pyc 类型的字节码文件,和 CPU 指令类似，但是这个.pyc 并不被 cpu 执行，而是由 python 虚拟机执行，这里的 python 虚拟机就是所说的 python 解释器。
 
-用的最多的解释器Cpython解释器，因为是用C语言写的。设计之初，为了数据安全，加了锁。这个锁就是GIL
+用的最多的解释器 Cpython 解释器，因为是用 C 语言写的。设计之初，为了数据安全，加了锁。这个锁就是 GIL
 
 单个线程的执行步骤:
-* 获取GIL
-* 执行代码
-* 释放GIL锁
 
-由于有GIL锁的存在，python一个进程里永远只能有一个线程在执行，这个线程就是抢到GIL锁的线程，不然就等待GIL锁的释放。每次GIL的释放，线程就各种锁竞争、切换。所以python中的多线程并不是真正的多线程。
+- 获取 GIL
+- 执行代码
+- 释放 GIL 锁
 
-#### 多线程中Join的用法
+由于有 GIL 锁的存在，python 一个进程里永远只能有一个线程在执行，这个线程就是抢到 GIL 锁的线程，不然就等待 GIL 锁的释放。每次 GIL 的释放，线程就各种锁竞争、切换。所以 python 中的多线程并不是真正的多线程。
+
+#### 多线程中 Join 的用法
 
 ##### 默认情况
 
@@ -63,6 +67,7 @@ for t in thread_list:
 print('Main End',threading.current_thread().name)
 print(time.time()-start_time)
 ```
+
 主线程结束，子线程继续执行自己的任务，直到全部线程执行结束，程序才结束。
 
 ##### 设置守护线程
@@ -86,7 +91,7 @@ print(time.time()-start_time)
 
 主线程结束,程序结束，子线程还没来得及执行
 
-##### Join的用法
+##### Join 的用法
 
 ```py
 import threading,time
@@ -105,6 +110,7 @@ for t in thread_list:
 print('Main End',threading.current_thread().name)
 print(time.time()-start_time)
 ```
+
 主线程一直等待全部的子线程结束，主线程才结束，程序退出。
 
 #### 线程同步
@@ -127,9 +133,10 @@ t1.join()
 t2.join()
 print(balance)
 ```
+
 多个线程同时读变量进行读写操作，就会导致变量异常，因为线程之间不是同步的，所以是需要线程同步。
 
-##### 线程锁Lock
+##### 线程锁 Lock
 
 ```py
 import time,threading

@@ -1,7 +1,9 @@
 #### 搜索
-在一个集合中找特定项，找到返回True,否则返回False
 
-* 顺序
+在一个集合中找特定项，找到返回 True,否则返回 False
+
+- 顺序
+
 ```py
 def search(alist,item):
     found = False
@@ -15,7 +17,9 @@ def search(alist,item):
 alist = [5,2,10,28,6]
 print(search(alist,6))
 ```
-* 二分查找
+
+- 二分查找
+
 ```py
 # 首先想到的写法
 def binarySearch(alist,item):
@@ -35,6 +39,7 @@ def binarySearch(alist,item):
 alist = [5,9,12,15,25,37,48]
 print(binarySearch(alist,37))
 ```
+
 ```py
 # 递归写法
 def binarySearch(alist,item):
@@ -52,5 +57,6 @@ def binarySearch(alist,item):
 alist = [5,9,12,15,25,37,48]
 print(binarySearch(alist,37))
 ```
-* Hash表
-还没搞明白
+
+- Hash 表
+  还没搞明白

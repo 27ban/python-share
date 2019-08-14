@@ -1,6 +1,6 @@
 #### 多进程
 
-Join用法同多线程一样
+Join 用法同多线程一样
 
 ```py
 import os
@@ -20,7 +20,7 @@ for p in p_list:
 print("Main Process",os.getpid())
 ```
 
-#### 进程池Pool
+#### 进程池 Pool
 
 ```py
 from multiprocessing import Pool
@@ -37,12 +37,11 @@ p.join()
 print("Main Process")
 ```
 
-Pool由两种模式，阻塞和非阻塞，阻塞即添加进程后必须等待前面的进程执行结束才执行，非阻塞则相反。
+Pool 由两种模式，阻塞和非阻塞，阻塞即添加进程后必须等待前面的进程执行结束才执行，非阻塞则相反。
 
 #### 多进程通信
 
-
-##### 多进程锁Lock
+##### 多进程锁 Lock
 
 ```py
 from multiprocessing import Process, Lock
@@ -64,7 +63,7 @@ for i in range(10, 15):
     p.start()
 ```
 
-##### Queue队列
+##### Queue 队列
 
 ```py
 from multiprocessing import Process,Queue

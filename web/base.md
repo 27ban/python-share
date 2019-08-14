@@ -1,11 +1,13 @@
 ### WSGI
-web应用的本质: 浏览器发HTTP请求-->服务器接收请求，生成HTML-->服务器把HTTP响应给浏览器-->浏览器接收HTTP响应，并展示HTML文档
-然后接收HTTP请求，解析HTTP请求，响应HTTP请求，都是很复杂的，首先要熟悉HTTP规范。然后才能再此基础上写业务逻辑，这样费时费力，我们不希望接触到TCP连接、HTTP原始请求和响应格式，所以是需要有一个专门的软件实现，提供接口供我们调用。这个接口就是WSGI
-wsgiref就是python自带的web服务器
 
-### wsgiref模块
+web 应用的本质: 浏览器发 HTTP 请求-->服务器接收请求，生成 HTML-->服务器把 HTTP 响应给浏览器-->浏览器接收 HTTP 响应，并展示 HTML 文档
+然后接收 HTTP 请求，解析 HTTP 请求，响应 HTTP 请求，都是很复杂的，首先要熟悉 HTTP 规范。然后才能再此基础上写业务逻辑，这样费时费力，我们不希望接触到 TCP 连接、HTTP 原始请求和响应格式，所以是需要有一个专门的软件实现，提供接口供我们调用。这个接口就是 WSGI
+wsgiref 就是 python 自带的 web 服务器
+
+### wsgiref 模块
 
 #### 简单起个服务
+
 ```py
 from wsgiref.simple_server import make_server
 def app(environ,start_response):
@@ -16,12 +18,14 @@ httpd  = make_server('',8000,app)
 httpd.serve_forever()
 ```
 
-#### WSGI服务器是如何启动的
-先看一下wsgiref/simple_server.py 里面有什么
+#### WSGI 服务器是如何启动的
+
+先看一下 wsgiref/simple_server.py 里面有什么
+
 ```py
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from wsgiref.handlers import SimpleHandler
-# 继承HTTPServer,最后调用的serve_forever就是父类的方法   
+# 继承HTTPServer,最后调用的serve_forever就是父类的方法
 class WSGIServer(HTTPServer):
     application = None
     def server_bind(self):
@@ -49,9 +53,9 @@ class WSGIRequestHandler(BaseHTTPRequestHandler):
         for k, v in self.headers.items():
             k=k.replace('-','_').upper(); v=v.strip()
             if k in env:
-                continue                   
+                continue
             if 'HTTP_'+k in env:
-                env['HTTP_'+k] += ','+v     
+                env['HTTP_'+k] += ','+v
             else:
                 env['HTTP_'+k] = v
         return env
@@ -72,11 +76,12 @@ def make_server(host, port, app, server_class=WSGIServer, handler_class=WSGIRequ
 ```
 
 htttp/server.py
+
 ```py
 import http.client
 import socketserver
 class HTTPServer(socketserver.TCPServer):
-    allow_reuse_address = 1 
+    allow_reuse_address = 1
     def server_bind(self):
         socketserver.TCPServer.server_bind(self)
         host, port = self.server_address[:2]
@@ -85,6 +90,7 @@ class HTTPServer(socketserver.TCPServer):
 ```
 
 socketserver.py
+
 ```py
 '''
         +------------+
@@ -146,7 +152,7 @@ class BaseServer:
     def finish_request(self, request, client_address):
         # 这里实际上就是wsgiref/simple_server.py的 WSGIRequestHandler
         self.RequestHandlerClass(request, client_address, self)
-    
+
 class TCPServer(BaseServer):
     def get_request(self):
         return self.socket.accept()
@@ -159,16 +165,20 @@ class TCPServer(BaseServer):
     def close_request(self, request):
         request.close()
 ```
-WSGI服务器大概启动过程，先执行wsgiref的make_server，返回实例化的WSGIServer，WSGIServer继承与socketserver.py的TCPServer类，而TCPserver继承与BaseServer类，最后执行的serve_forever相当于就是BaseServer的serve_forever的方法,该方法就是创建一个死循环，一直监听是否有请求进来，如果有就执行self.process_request处理request
 
-##### wsgiref处理request
+WSGI 服务器大概启动过程，先执行 wsgiref 的 make_server，返回实例化的 WSGIServer，WSGIServer 继承与 socketserver.py 的 TCPServer 类，而 TCPserver 继承与 BaseServer 类，最后执行的 serve_forever 相当于就是 BaseServer 的 serve_forever 的方法,该方法就是创建一个死循环，一直监听是否有请求进来，如果有就执行 self.process_request 处理 request
+
+##### wsgiref 处理 request
 
 http/server.py
+
 ```py
 class BaseHTTPRequestHandler(socketserver.StreamRequestHandler):
     pass
 ```
+
 socketserver.py
+
 ```py
 # 处理request请求的Base类，相当于调用了self.handle的方法
 class BaseRequestHandler:
@@ -189,7 +199,7 @@ class StreamRequestHandler(BaseRequestHandler):
     pass
 ```
 
-上面说了实现处理request的是WSGIRequestHandler,而他继承了BaseRequestHandler，并重写了handle方法，当wsgi服务器接收到一个有请求过来时就会实例化一次WSGIRequestHandler，实例化时就会执行他的handler方法。handle实例化SimpleHandler并执行run方法.
+上面说了实现处理 request 的是 WSGIRequestHandler,而他继承了 BaseRequestHandler，并重写了 handle 方法，当 wsgi 服务器接收到一个有请求过来时就会实例化一次 WSGIRequestHandler，实例化时就会执行他的 handler 方法。handle 实例化 SimpleHandler 并执行 run 方法.
 
 ```py
 from wsgiref.handlers import SimpleHandler
@@ -201,8 +211,8 @@ def handle(self):
     handler.run(self.server.get_app())
 ```
 
-
 wsgiref/handlers
+
 ```py
 class BaseHandler(object):
     '''
@@ -270,11 +280,11 @@ class SimpleHandler(BaseHandler):
         self.stdout.flush()
         self._flush = self.stdout.flush
 ```
-flask和django都用到了wsgiref模块，django是直接调用的，flask是间接调用的，由于对性能的需求，wsgiref很少用于线上环境，线上一般用nginx+gunicorn+flask搭配使用。
-wsgiref设计时wsgi 服务器和wsgi app 是分开的，也就是说我们在部署项目的时候可以不用自带的wsgi sever，使用python web的开发也是很灵活的。不同的wsgi server 的区别在于多线程、多进程、协程。而wsgi app通常就是根据请求的路由不同，执行不同的view视图函数。
 
+flask 和 django 都用到了 wsgiref 模块，django 是直接调用的，flask 是间接调用的，由于对性能的需求，wsgiref 很少用于线上环境，线上一般用 nginx+gunicorn+flask 搭配使用。
+wsgiref 设计时 wsgi 服务器和 wsgi app 是分开的，也就是说我们在部署项目的时候可以不用自带的 wsgi sever，使用 python web 的开发也是很灵活的。不同的 wsgi server 的区别在于多线程、多进程、协程。而 wsgi app 通常就是根据请求的路由不同，执行不同的 view 视图函数。
 
-flask,django默认都是单进程多线程的
+flask,django 默认都是单进程多线程的
 
 ```py
 from flask import Flask
@@ -293,6 +303,7 @@ def index():
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=8000)
 ```
+
 ```py
 from django.http import HttpResponse
 import os
@@ -329,7 +340,9 @@ if __name__ == "__main__":
     app.listen(8000)
     tornado.ioloop.IOLoop.current().start()
 ```
+
 测试用例
+
 ```py
 from multiprocessing import Pool
 import time

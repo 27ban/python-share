@@ -1,4 +1,4 @@
-# Python数据类型
+# Python 数据类型
 
 ### 变量有三问:"他是谁？他从哪里来？要到哪里去？"
 
@@ -6,7 +6,8 @@
 
 可变与不可变实际上是对一个对象进行操作，是否会重新创建一个对象，并将原来的变量重新指向新建的对象，如果没有其他变量引用原来对象的话，原来对象就会被回收
 
-* 数字(**不可变对象**)
+- 数字(**不可变对象**)
+
 ```py
 a = 4
 #id()获取对象的内存地址
@@ -15,7 +16,9 @@ a +=1
 print(a)
 id(a)
 ```
+
 补充:当多个变量值一样的时候
+
 ```py
 a = 2
 b = 2
@@ -23,7 +26,8 @@ id(a)
 id(b)
 ```
 
-* 字符串(**不可变,有序对象**)
+- 字符串(**不可变,有序对象**)
+
 ```py
 a = "hello"
 #print(id(a))
@@ -32,7 +36,8 @@ print(a)
 #print(id(a))
 ```
 
-* 列表(**可变,有序对象**)
+- 列表(**可变,有序对象**)
+
 ```py
 a = ['a','b','c','d']
 print(a)
@@ -41,7 +46,9 @@ a[2] = 'eee'
 print(a)
 # print(id(a))
 ```
-* 字典(**可变,无序对象**)
+
+- 字典(**可变,无序对象**)
+
 ```py
 d = {'a':"hello",'b':"world"}
 # print(id(d))
@@ -50,14 +57,17 @@ print(d)
 # print(id(d))
 ```
 
-* 元祖(**不可变,有序对象**)
+- 元祖(**不可变,有序对象**)
+
 ```py
 t = (1,2,3,4)
 print(dir(t))
 ```
-因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple。
 
-* 集合(**可变,无序,不可重复对象**)
+因为 tuple 不可变，所以代码更安全。如果可能，能用 tuple 代替 list 就尽量用 tuple。
+
+- 集合(**可变,无序,不可重复对象**)
+
 ```py
 t = {1,2,3,5,3}
 print(id(t))
@@ -66,37 +76,29 @@ print(t)
 print(id(t))
 ```
 
-| 类型 |     内容 |
-| -:-   |-:-|
-| 数字| 不可变|
-| str| 不可变,有序|
-| list| 可变,有序|
-| dict| 可变,无序|
-| tuple| 不可变,有序|
-| set| 可变,无序|
-
-
-
-
-
-
-
-
-
+|  类型 |        内容 |
+| ----: | ----------: |
+|  数字 |      不可变 |
+|   str | 不可变,有序 |
+|  list |   可变,有序 |
+|  dict |   可变,无序 |
+| tuple | 不可变,有序 |
+|   set |   可变,无序 |
 
 #### 1.2 基本数据类型的方法
 
-| 类型 |     方法 |
-| -:-   |-:-|
-| str | center,count,endswith,find,format,index,isalnum,isascii,isdecimal,isdigit,islower,join,lower,replace,split,startswith,strip,title,upper|
-| list| append,clear,copy,count,extend,index,insert,pop,remove,reverse,sort|
-| dict| clear,copy,fromkeys,get,items,keys,pop,popitem,setdefault,update,values|
-| tuple| count,index|
-| set| add,clear,copy,difference,difference_update,discard,isdisjoint,issubset,issuperset,pop,remove,union,update|
+|  类型 |                                                                                                                                    方法 |
+| ----: | --------------------------------------------------------------------------------------------------------------------------------------: |
+|   str | center,count,endswith,find,format,index,isalnum,isascii,isdecimal,isdigit,islower,join,lower,replace,split,startswith,strip,title,upper |
+|  list |                                                                     append,clear,copy,count,extend,index,insert,pop,remove,reverse,sort |
+|  dict |                                                                 clear,copy,fromkeys,get,items,keys,pop,popitem,setdefault,update,values |
+| tuple |                                                                                                                             count,index |
+|   set |                              add,clear,copy,difference,difference_update,discard,isdisjoint,issubset,issuperset,pop,remove,union,update |
 
+查看方法 dir(type)
 
-查看方法dir(type)
-* str
+- str
+
 ```py
 s = 'abcd \n ef12323'
 s.index('e') # 查找元素所在位置,不存在会报错
@@ -108,7 +110,9 @@ s.strip('23') # 用于移除字符串头尾指定的字符
 s.islower() # 是否小写
 s.lower() # 转换成小写
 ```
-* list
+
+- list
+
 ```py
 l = ['a','b','c','d']
 l.append('e')
@@ -119,10 +123,10 @@ l.insert(2,'c')
 l.copy()
 ```
 
-
 #### 1.3 相互转换
 
-* 转list
+- 转 list
+
 ```py
 # 集合转list
 a = {1,2,3,4,3}
@@ -134,13 +138,17 @@ print(list(d.keys()))
 t = (1,2,3,4,5)
 print(list(t))
 ```
-* 转dict
+
+- 转 dict
+
 ```py
 # a = [(1,2),(3,4)]
 a = ((1,2),(3,4))
 d = {i:j for i,j in a}
 ```
-* 转str
+
+- 转 str
+
 ```py
 s = ['a','b','c','d']
 "".join(s)
@@ -149,11 +157,14 @@ s = ['a','b','c','d']
 #### 1.4 生成器
 
 直接创建一个很长的列表，会占用很大的内存空间，有没有一种方法一边循环一边计算的机制，这样的机制叫生成器(generator)
+
 ```py
 l = [x for x in range(15)]
 g = (x for x in range(15))
 ```
-生成器不但可以作用于for循环，还可以被next()函数不断调用并返回下一个值，直到最后抛出StopIteration错误表示无法继续返回下一个值
+
+生成器不但可以作用于 for 循环，还可以被 next()函数不断调用并返回下一个值，直到最后抛出 StopIteration 错误表示无法继续返回下一个值
+
 ```py
 next(g)
 ```
@@ -179,6 +190,7 @@ def gener():
 for j in gener():
     print(j)
 ```
+
 ```py
 def foo(num):
     print('start......')
@@ -191,16 +203,18 @@ print('-'*20)
 # print(g.send(7))
 print(next(g))
 ```
-此时foo就是一个生成器函数,next就相当于“下一步”生成哪个数，这一次的next开始的地方是接着上一次的next停止的地方执行的，所以调用next的时候，生成器并不会从foo函数的开始执行，只是接着上一步停止的地方开始，然后遇到yield后，return出要生成的数，此步就结束。
+
+此时 foo 就是一个生成器函数,next 就相当于“下一步”生成哪个数，这一次的 next 开始的地方是接着上一次的 next 停止的地方执行的，所以调用 next 的时候，生成器并不会从 foo 函数的开始执行，只是接着上一步停止的地方开始，然后遇到 yield 后，return 出要生成的数，此步就结束。
+
 #### 1.5 迭代器
 
-list,tuple,dict,str,set,生成器,yield 直接作用于for循环的统称可迭代对象Iterable
+list,tuple,dict,str,set,生成器,yield 直接作用于 for 循环的统称可迭代对象 Iterable
 
-可以被next()函数调用并不断返回下一个值的对象称为迭代器：迭代器Iterator
+可以被 next()函数调用并不断返回下一个值的对象称为迭代器：迭代器 Iterator
 
-凡是可作用于for循环的对象都是Iterable类型
+凡是可作用于 for 循环的对象都是 Iterable 类型
 
-凡是可作用于next()函数的对象都是Iterator类型
+凡是可作用于 next()函数的对象都是 Iterator 类型
 
 ### 1.6 示例
 
@@ -211,7 +225,7 @@ tt = '({})'.format(",".join(df_2['学员编号'].tolist()))
 
 ```py
 sql_ks = '''
-	select 
+	select
 		stats_date,
 		is_leader,
 		ul.name,
@@ -242,6 +256,7 @@ def response_df_format(resp):
 ```
 
 遍历一个集合及其下标
+
 ```py
 colors = ['red','green','blue','yellow']
 for i in range(len(colors)):
@@ -252,6 +267,7 @@ for i, color in enumerate(colors):
 ```
 
 遍历两个集合
+
 ```py
 names = ['raymond', 'rachel', 'matthew']
 colors = ['red', 'green', 'blue', 'yellow']
@@ -264,6 +280,7 @@ for name, color in zip(names, colors):
 ```
 
 在循环内识别多个退出点
+
 ```py
 def find(seq, target):
     found = False
@@ -285,6 +302,7 @@ def find(seq, target):
 ```
 
 用字典计数
+
 ```py
 colors = ['red', 'green', 'red', 'blue', 'green', 'red']
 # 简单，基本的计数方法。适合初学者起步时学习。
@@ -299,7 +317,9 @@ d = {}
 for color in colors:
     d[color] = d.get(color, 0) + 1
 ```
+
 更新多个变量的状态
+
 ```py
 def fibonacci(n):
     x = 0

@@ -1,6 +1,7 @@
-### python练习题
+### python 练习题
 
-* 在屏幕上显示跑马灯文字
+- 在屏幕上显示跑马灯文字
+
 ```py
 import os
 import time
@@ -13,7 +14,9 @@ def marquee():
         content = content[1:] + content[0]
 marquee()
 ```
-* 设计一个函数产生指定长度的验证码，验证码由大小写字母和数字构成。
+
+- 设计一个函数产生指定长度的验证码，验证码由大小写字母和数字构成。
+
 ```py
 import random
 import string
@@ -23,7 +26,9 @@ def captcha(n=4):
     return  "".join(random.sample(source, n))
 print(captcha(6))
 ```
-* 计算指定的年月日是这一年的第几天
+
+- 计算指定的年月日是这一年的第几天
+
 ```py
 def is_leap_year(year):
     return year % 4 == 0 and year % 100 != 0 or year % 400 == 0
@@ -45,7 +50,9 @@ def which_day2(s):
     return d.dayofyear
 print(which_day2('2019-12-12'))
 ```
-* 设计一个函数返回给定文件名的后缀名。
+
+- 设计一个函数返回给定文件名的后缀名。
+
 ```py
 def get_filename(name):
     res = name.rsplit(".",1)
@@ -53,12 +60,16 @@ def get_filename(name):
 name="helrkjelr.xls"
 print(get_filename(name))
 ```
-* 设计一个函数返回时针与分针的夹角。
+
+- 设计一个函数返回时针与分针的夹角。
+
 ```py
 def times(h,m):
     return abs(((h+m//12)*5-m)*6)
 ```
-* 有效括号
+
+- 有效括号
+
 ```py
 #给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
 #有效字符串需满足：
@@ -84,11 +95,10 @@ def isValid2(s):
     return s == ''
 ```
 
-
-
-
 面向对象编程
-* 定义一个类描述平面上的点并提供移动点和计算到另一个点距离的方法。
+
+- 定义一个类描述平面上的点并提供移动点和计算到另一个点距离的方法。
+
 ```py
 from math import sqrt
 class Point(object):
@@ -115,9 +125,11 @@ p2.move_by(-1, 2)
 print(p2)
 print(p1.distance_to(p2))
 ```
-* 工资结算系统
+
+- 工资结算系统
+
 ```py
-# 某公司有三种类型的员工 分别是部门经理、程序员和销售员需要设计一个工资结算系统 
+# 某公司有三种类型的员工 分别是部门经理、程序员和销售员需要设计一个工资结算系统
 # 根据提供的员工信息来计算月薪
 # 部门经理的月薪是每月固定15000元
 # 程序员的月薪按本月工作时间计算 每小时150元

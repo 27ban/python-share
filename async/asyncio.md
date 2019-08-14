@@ -1,6 +1,7 @@
 ### 协程
-* 子程序的切换由程序控制，没有线程切换的开销
-* 因为只有一个线程，也就不用考虑锁的问题
+
+- 子程序的切换由程序控制，没有线程切换的开销
+- 因为只有一个线程，也就不用考虑锁的问题
 
 ```py
 def producer(c):
@@ -40,7 +41,9 @@ tasks = [hello(), hello()]
 loop.run_until_complete(asyncio.wait(tasks))
 loop.close()
 ```
+
 多线程读写变量
+
 ```py
 import time,threading
 start =time.time()
@@ -63,6 +66,7 @@ print(time.time()-start)
 ```
 
 协程读写变量
+
 ```py
 import asyncio
 import time
@@ -85,10 +89,11 @@ run_thread(c)
 print(balance)
 print(time.time()-start)
 ```
+
 ```py
 import asyncio
 import time
-balance = 0 
+balance = 0
 start = time.time()
 async def change_it(n):
     global balance
@@ -104,8 +109,7 @@ print(balance)
 print(time.time()-start)
 ```
 
-
-#### async和 await
+#### async 和 await
 
 ```py
 import threading
@@ -122,9 +126,10 @@ loop.run_until_complete(asyncio.wait(tasks))
 loop.close()
 ```
 
-#### aiohttp(异步网络IO)
+#### aiohttp(异步网络 IO)
 
-起一个flask服务
+起一个 flask 服务
+
 ```py
 from flask import Flask
 import time
@@ -137,6 +142,7 @@ app.run(theraded=True)
 ```
 
 用前面说的协程
+
 ```py
 import asyncio
 import requests
@@ -149,7 +155,7 @@ async def request():
     print('Waiting for', url)
     response = await get(url)
     print('Get response from', url, 'Result:', response.text)
- 
+
 tasks = [asyncio.ensure_future(request()) for _ in range(5)]
 loop = asyncio.get_event_loop()
 loop.run_until_complete(asyncio.wait(tasks))
@@ -158,8 +164,9 @@ print('Cost time:', end - start)
 ```
 
 用多线程
+
 ```py
-import threading 
+import threading
 import requests
 import time
 start = time.time()
@@ -175,7 +182,9 @@ for i in t:
     i.join()
 print(time.time()-start)
 ```
+
 用多进程
+
 ```py
 from multiprocessing import Pool
 import time
@@ -192,8 +201,8 @@ p.join()
 print(time.time()-start)
 ```
 
+用 aiohttp 模块
 
-用aiohttp模块
 ```py
 import aiohttp
 import asyncio
@@ -214,9 +223,7 @@ loop.run_until_complete(asyncio.wait(tasks))
 print(time.time()-start_time)
 ```
 
-
-
-
 参考链接
-* https://cuiqingcai.com/6160.html
-* https://aiohttp.readthedocs.io/en/stable
+
+- https://cuiqingcai.com/6160.html
+- https://aiohttp.readthedocs.io/en/stable

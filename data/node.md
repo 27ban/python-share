@@ -5,18 +5,21 @@
 ![](\images\nodelist.png)
 
 为什么要用链表，或者应用场景是哪？
-链表的用处是在特定应用场景下省时间，比如数组在任意位置插入和删除是O(n)的，但链表是O(1)的
-
+链表的用处是在特定应用场景下省时间，比如数组在任意位置插入和删除是 O(n)，但链表是 O(1)的
 
 #### 设计链表
+
 1. 设计节点
+
 ```py
 class Node(object):
     def __init__(self,val):
         self.val = val
         self.next = None
 ```
+
 2. 创建链表
+
 ```py
 class NodeList(object):
     def __init__(self):
@@ -42,17 +45,18 @@ class NodeList(object):
             size +=1
             head = head.next
         return size
-    
+
     def toprint(self):
         head = self.head
         while head:
             print(head.val)
-            head = head.next    
+            head = head.next
 ```
 
 #### 链表常用操作
 
-* 反转链表
+- 反转链表
+
 ```py
 def reverseList(head):
     if not head or not head.next:
@@ -62,7 +66,9 @@ def reverseList(head):
     head.next = None
     return node
 ```
-* 链表排序
+
+- 链表排序
+
 ```py
 # 归并排序，时间复杂度为O(nlogn)
 def sortList(head):
@@ -99,4 +105,5 @@ def merge(left,right):
         pre.next=left
     return head.next
 ```
+
 更多链表相关信息(https://leetcode-cn.com/tag/linked-list)

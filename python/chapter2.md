@@ -1,10 +1,12 @@
-# Python面向对象
+# Python 面向对象
 
 ### 面向对象
+
 面向过程:把函数切分为子函数，即把大块函数通过切割成小块函数来降低系统的复杂度.
 
 面向对象:把计算机程序视为一组对象的集合，而每个对象都可以接收其他对象发过来的消息，并处理这些消息
 可以对现实事物、问题进行抽象编程,把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。
+
 ```py
 std1 = { 'name': 'Michael', 'score': 98 }
 std2 = { 'name': 'Bob', 'score': 81 }
@@ -23,20 +25,21 @@ lisa = Student('Lisa Simpson', 87)
 bart.print_score()
 lisa.print_score()
 ```
-我们定义的Class——Student，是指学生这个概念，而实例（Instance）则是一个个具体的Student，比如，Bart Simpson和Lisa Simpson是两个具体的Student。
-面向对象的设计思想是抽象出Class，根据Class创建Instance。
-面向对象的抽象程度又比函数要高，因为一个Class既包含数据，又包含操作数据的方法。
+
+我们定义的 Class——Student，是指学生这个概念，而实例（Instance）则是一个个具体的 Student，比如，Bart Simpson 和 Lisa Simpson 是两个具体的 Student。
+面向对象的设计思想是抽象出 Class，根据 Class 创建 Instance。
+面向对象的抽象程度又比函数要高，因为一个 Class 既包含数据，又包含操作数据的方法。
 
 ### 类属性和实例属性
 
 ```py
 class Student(object):
     #self指代是对象本身,代表当前对象的地址
-    #self表示当前实例化对象 
+    #self表示当前实例化对象
     def __init__(self, name, score):
         self.name = name
         self.score = score
-    
+
     def get_grade(self):
         if self.score >= 90:
             return 'A'
@@ -50,6 +53,7 @@ bart = Student('Bart', 59)
 print(lisa.name, lisa.get_grade())
 print(bart.name, bart.get_grade())
 ```
+
 ```py
 class S(object):
     name = "sss"
@@ -58,6 +62,7 @@ class S(object):
     def __init__(self):
         self.name = "sss"
 ```
+
 ```py
 class T(object):
     name = "hello"
@@ -67,6 +72,7 @@ class T(object):
         print(name)
         # print(self.name)
 ```
+
 千万不要对实例属性和类属性使用相同的名字，因为相同名称的实例属性将屏蔽掉类属性，但是当你删除实例属性后，再使用相同的名称，访问到的将是类属性。
 
 类是创建实例的模板，而实例则是一个一个具体的对象，各个实例拥有的数据都互相独立，互不影响；
@@ -74,7 +80,9 @@ class T(object):
 通过在实例上调用方法，我们就直接操作了对象内部的数据，但无需知道方法内部的实现细节。
 
 ### 静态方法和类方法
-* 实例方法
+
+- 实例方法
+
 ```py
 class Dog(object):
     def __init__(self,name):
@@ -85,7 +93,9 @@ class Dog(object):
 d = Dog("GOU")
 d.eat("GUTOU")
 ```
-*  静态方法
+
+- 静态方法
+
 ```py
 class Dog(object):
     hello = "xxxx"
@@ -100,10 +110,12 @@ d = Dog("GOU")
 d.eat()
 Dog.eat()
 ```
-当eat函数变为静态方法时，此时静态方法将eat函数与类Dog之间的关联截断，之前调用类下面的方法会自动传self，如果用了staticmethod，那么就可以无视这个self，而将这个方法当成一个普通的函数使用。
+
+当 eat 函数变为静态方法时，此时静态方法将 eat 函数与类 Dog 之间的关联截断，之前调用类下面的方法会自动传 self，如果用了 staticmethod，那么就可以无视这个 self，而将这个方法当成一个普通的函数使用。
 静态方法是个独立的、单纯的函数，它仅仅托管于某个类的名称空间中，便于使用和维护,不能访问实例变量和类属性
 
-* 类方法
+- 类方法
+
 ```py
 class Dog(object):
     hello = "hello"
@@ -119,20 +131,21 @@ d = Dog("Gou")
 d.eat()
 Dog.eat()
 ```
+
 类方法是将类本身作为对象进行操作的方法。类方法只能访问类变量，不能访问实例变量。
 
-
-| 属性 | 方法 |
-| -:- | -:- |
-| 实例方法| 可以用类方法和静态方法,但不建议|
-| 静态方法| 不能访问实例方法和类方法|
-| 类方法 | 能访问类属性,不能访问实例属性和方法|
+|     属性 |                                方法 |
+| -------: | ----------------------------------: |
+| 实例方法 |     可以用类方法和静态方法,但不建议 |
+| 静态方法 |            不能访问实例方法和类方法 |
+|   类方法 | 能访问类属性,不能访问实例属性和方法 |
 
 #### 三大特点:数据封装、继承和多态
 
 ### 继承和多态
 
-* 继承
+- 继承
+
 ```py
 class Animal(object):
     def run(self):
@@ -147,7 +160,8 @@ cat = Cat()
 cat.run()
 ```
 
-* 多态
+- 多态
+
 ```py
 def run_twice(animal):
     animal.run()
@@ -160,15 +174,18 @@ class Tortoise(Animal):
         print('Tortoise is running slowly...')
 run_twice(Tortoise())
 ```
-新增一个Animal的子类，不必对run_twice()做任何修改，实际上，任何依赖Animal作为参数的函数或者方法都可以不加修改地正常运行，原因就在于多态.
-多态的好处就是，当我们需要传入Dog、Cat、Tortoise……时，我们只需要接收Animal类型就可以了，因为Dog、Cat、Tortoise……都是Animal类型，然后，按照Animal类型进行操作即可。由于Animal类型有run()方法，因此，传入的任意类型，只要是Animal类或者子类，就会自动调用实际类型的run()方法.
+
+新增一个 Animal 的子类，不必对 run_twice()做任何修改，实际上，任何依赖 Animal 作为参数的函数或者方法都可以不加修改地正常运行，原因就在于多态.
+多态的好处就是，当我们需要传入 Dog、Cat、Tortoise……时，我们只需要接收 Animal 类型就可以了，因为 Dog、Cat、Tortoise……都是 Animal 类型，然后，按照 Animal 类型进行操作即可。由于 Animal 类型有 run()方法，因此，传入的任意类型，只要是 Animal 类或者子类，就会自动调用实际类型的 run()方法.
 
 #### 对扩展开放,对修改封闭
 
-
 ### 魔法方法
+
 #### 构造和初始化
-* __init__初始化对象时使用，定义这个对象的初始值
+
+- **init**初始化对象时使用，定义这个对象的初始值
+
 ```py
 class Person(object):
     def __init__(self,name,age):
@@ -176,7 +193,9 @@ class Person(object):
         self.age = age
 p = Person('Lisa',18)
 ```
-* __new__创建实例化对象时调用,他是对象实例化时第一个被调用，然后再调用__init__
+
+- **new**创建实例化对象时调用,他是对象实例化时第一个被调用，然后再调用**init**
+
 ```py
 # 单例模式
 class Singleton(object):
@@ -202,7 +221,9 @@ class g(int):
 a = g(-23)
 print(a)
 ```
-* __del__在对象被垃圾回收时才被调用，del x不一定会执行此方法。
+
+- **del**在对象被垃圾回收时才被调用，del x 不一定会执行此方法。
+
 ```py
 class Person(object):
     def __del__(self):
@@ -215,7 +236,9 @@ del c
 ```
 
 #### 类的表示
-* __str__强调可读性,__repr__强调准确性/标准性
+
+- **str**强调可读性,**repr**强调准确性/标准性
+
 ```py
 class Person(object):
     def __init__(self,name,age):
@@ -233,10 +256,11 @@ print('%r'%person)
 ```
 
 #### 访问控制
-* __setattr__设置属性
-* __getattr__访问不存在的属性
-* __delattr__删除某个属性
-* __getattribute__访问任意属性或方法
+
+- **setattr**设置属性
+- **getattr**访问不存在的属性
+- **delattr**删除某个属性
+- **getattribute**访问任意属性或方法
 
 ```py
 class Person(object):
@@ -282,7 +306,9 @@ del p1.name		# __delattr__中引发AttributeError
 p2 = Person()
 p2.age = -1
 ```
-* __call__将类实例对象变成可调用对象
+
+- **call**将类实例对象变成可调用对象
+
 ```py
 class X(object):
     def __call__(self):
@@ -290,7 +316,9 @@ class X(object):
 x = X()
 x(10)
 ```
-* __enter__/__exit__ 上下文管理
+
+- **enter**/**exit** 上下文管理
+
 ```py
 class O(object):
     def __init__(self,name):
@@ -305,9 +333,12 @@ with O('hello') as o:
     o.name
 ```
 
-### 元类(metaclass创建类的模版)
-#### 先定义metaclass，就可以创建类，最后创建实例。
-*  type()又可以创建新的类型
+### 元类(metaclass 创建类的模版)
+
+#### 先定义 metaclass，就可以创建类，最后创建实例。
+
+- type()又可以创建新的类型
+
 ```py
 class Hello(object):
     def hello(self,name="world"):
@@ -317,6 +348,7 @@ h.hello()
 print(type(Hello))
 print(type(h))
 ```
+
 ```py
 def fn(self,name="world"):
     print(name)
@@ -326,7 +358,9 @@ h.hello()
 print(type(Hello))
 print(type(h))
 ```
-* 创建一个自定义的元类,必须是继承type的
+
+- 创建一个自定义的元类,必须是继承 type 的
+
 ```py
 class ListMetaclass(type):
     def __new__(cls, name, bases, attrs):
@@ -340,7 +374,7 @@ print(L)
 print(type(L))
 ```
 
-### Python中的type 和 object
+### Python 中的 type 和 object
 
 ![JPG](\images\python_type_object.jpg)
 
