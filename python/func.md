@@ -3,6 +3,7 @@
 - lambda匿名函数
 
 - filter对元素进行过滤，返回符合条件的集合
+
 ```python
 alist = [3,6,-1,-4,-2]
 test = filter(lambda x: x > 0, alist)
@@ -10,6 +11,7 @@ print(test)
 # [3,6]
 
 ```
+
 
 - map对每个元素进行操作并返回其集合
 ```python

@@ -15,7 +15,6 @@ def printer():
 from a import X, printer 
 X = 99
 printer()
-
 # 30
 ```
 
