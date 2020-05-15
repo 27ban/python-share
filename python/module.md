@@ -9,7 +9,6 @@ X = 30
 def printer():
     print(X)
 ```
-
 ```python
 # b.py
 from a import X, printer 
