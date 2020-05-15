@@ -69,7 +69,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="chapter2.html" />
+    <link rel="next" href="func.html" />
     
     
     <link rel="prev" href="readme.html" />
@@ -132,9 +132,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.1" data-path="chapter1.html">
+        <li class="chapter active" data-level="1.2.1" data-path="data-type.html">
             
-                <a href="chapter1.html">
+                <a href="data-type.html">
             
                     
                         <b>1.2.1.</b>
@@ -147,12 +147,27 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="chapter2.html">
+        <li class="chapter " data-level="1.2.2" data-path="func.html">
             
-                <a href="chapter2.html">
+                <a href="func.html">
             
                     
                         <b>1.2.2.</b>
+                    
+                    高阶函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="class.html">
+            
+                <a href="class.html">
+            
+                    
+                        <b>1.2.3.</b>
                     
                     面向对象
             
@@ -162,14 +177,59 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="chapter3.html">
+        <li class="chapter " data-level="1.2.4" data-path="control.html">
             
-                <a href="chapter3.html">
+                <a href="control.html">
             
                     
-                        <b>1.2.3.</b>
+                        <b>1.2.4.</b>
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="module.html">
+            
+                <a href="module.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    模块和包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="decorator.html">
+            
+                <a href="decorator.html">
+            
+                    
+                        <b>1.2.6.</b>
                     
                     闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="except.html">
+            
+                <a href="except.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    异常
             
                 </a>
             
@@ -441,7 +501,6 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="python-&#x6570;&#x636E;&#x7C7B;&#x578B;">Python &#x6570;&#x636E;&#x7C7B;&#x578B;</h1>
-<h3 id="&#x53D8;&#x91CF;&#x6709;&#x4E09;&#x95EE;&#x4ED6;&#x662F;&#x8C01;&#xFF1F;&#x4ED6;&#x4ECE;&#x54EA;&#x91CC;&#x6765;&#xFF1F;&#x8981;&#x5230;&#x54EA;&#x91CC;&#x53BB;&#xFF1F;">&#x53D8;&#x91CF;&#x6709;&#x4E09;&#x95EE;:&quot;&#x4ED6;&#x662F;&#x8C01;&#xFF1F;&#x4ED6;&#x4ECE;&#x54EA;&#x91CC;&#x6765;&#xFF1F;&#x8981;&#x5230;&#x54EA;&#x91CC;&#x53BB;&#xFF1F;&quot;</h3>
 <h4 id="11-&#x53EF;&#x53D8;&#x4E0D;&#x53EF;&#x53D8;&#x6709;&#x5E8F;&#x4E0E;&#x65E0;&#x5E8F;">1.1 &#x53EF;&#x53D8;&#x4E0D;&#x53EF;&#x53D8;,&#x6709;&#x5E8F;&#x4E0E;&#x65E0;&#x5E8F;</h4>
 <p>&#x53EF;&#x53D8;&#x4E0E;&#x4E0D;&#x53EF;&#x53D8;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5BF9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x662F;&#x5426;&#x4F1A;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5C06;&#x539F;&#x6765;&#x7684;&#x53D8;&#x91CF;&#x91CD;&#x65B0;&#x6307;&#x5411;&#x65B0;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x53D8;&#x91CF;&#x5F15;&#x7528;&#x539F;&#x6765;&#x5BF9;&#x8C61;&#x7684;&#x8BDD;&#xFF0C;&#x539F;&#x6765;&#x5BF9;&#x8C61;&#x5C31;&#x4F1A;&#x88AB;&#x56DE;&#x6536;</p>
 <ul>
@@ -793,7 +852,7 @@ d = {}
                 </a>
                 
                 
-                <a href="chapter2.html" class="navigation navigation-next " aria-label="Next page: 面向对象">
+                <a href="func.html" class="navigation navigation-next " aria-label="Next page: 高阶函数">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -804,7 +863,7 @@ d = {}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"数据类型","level":"1.2.1","depth":2,"next":{"title":"面向对象","level":"1.2.2","depth":2,"path":"python/chapter2.md","ref":"python/chapter2.md","articles":[]},"previous":{"title":"Python基础","level":"1.2","depth":1,"path":"python/readme.md","ref":"python/readme.md","articles":[{"title":"数据类型","level":"1.2.1","depth":2,"path":"python/chapter1.md","ref":"python/chapter1.md","articles":[]},{"title":"面向对象","level":"1.2.2","depth":2,"path":"python/chapter2.md","ref":"python/chapter2.md","articles":[]},{"title":"闭包","level":"1.2.3","depth":2,"path":"python/chapter3.md","ref":"python/chapter3.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"python/chapter1.md","mtime":"2020-05-15T00:25:19.717Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T00:34:34.190Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据类型","level":"1.2.1","depth":2,"next":{"title":"高阶函数","level":"1.2.2","depth":2,"path":"python/func.md","ref":"python/func.md","articles":[]},"previous":{"title":"Python基础","level":"1.2","depth":1,"path":"python/readme.md","ref":"python/readme.md","articles":[{"title":"数据类型","level":"1.2.1","depth":2,"path":"python/data-type.md","ref":"python/data-type.md","articles":[]},{"title":"高阶函数","level":"1.2.2","depth":2,"path":"python/func.md","ref":"python/func.md","articles":[]},{"title":"面向对象","level":"1.2.3","depth":2,"path":"python/class.md","ref":"python/class.md","articles":[]},{"title":"流程控制","level":"1.2.4","depth":2,"path":"python/control.md","ref":"python/control.md","articles":[]},{"title":"模块和包","level":"1.2.5","depth":2,"path":"python/module.md","ref":"python/module.md","articles":[]},{"title":"闭包","level":"1.2.6","depth":2,"path":"python/decorator.md","ref":"python/decorator.md","articles":[]},{"title":"异常","level":"1.2.7","depth":2,"path":"python/except.md","ref":"python/except.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"python/data-type.md","mtime":"2020-05-15T01:53:50.704Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T03:43:07.307Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
