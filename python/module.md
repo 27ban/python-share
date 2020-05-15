@@ -3,14 +3,14 @@
 ##### import和from
 
 - import和from都是赋值语句
-```python a.py
+```python
 # a.py
 X = 30
 def printer():
     print(X)
 ```
 
-```python b.py
+```python
 # b.py
 from a import X, printer 
 X = 99

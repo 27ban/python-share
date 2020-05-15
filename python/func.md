@@ -30,4 +30,5 @@ alist = [3,12,35,12,67]
 count = reduce(lambda x,y: x+y, alist)
 print(count)
 # 129
+
 ```
