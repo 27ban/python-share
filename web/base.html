@@ -169,22 +169,7 @@
                     
                         <b>1.2.3.</b>
                     
-                    闭包+上下文管理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.4" data-path="../python/chapter4.html">
-            
-                <a href="../python/chapter4.html">
-            
-                    
-                        <b>1.2.4.</b>
-                    
-                    python练习
+                    闭包
             
                 </a>
             
@@ -456,10 +441,10 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="wsgi">WSGI</h3>
-<p>web&#x5E94;&#x7528;&#x7684;&#x672C;&#x8D28;: &#x6D4F;&#x89C8;&#x5668;&#x53D1;HTTP&#x8BF7;&#x6C42;--&gt;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x8BF7;&#x6C42;&#xFF0C;&#x751F;&#x6210;HTML--&gt;&#x670D;&#x52A1;&#x5668;&#x628A;HTTP&#x54CD;&#x5E94;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;--&gt;&#x6D4F;&#x89C8;&#x5668;&#x63A5;&#x6536;HTTP&#x54CD;&#x5E94;&#xFF0C;&#x5E76;&#x5C55;&#x793A;HTML&#x6587;&#x6863;
-&#x7136;&#x540E;&#x63A5;&#x6536;HTTP&#x8BF7;&#x6C42;&#xFF0C;&#x89E3;&#x6790;HTTP&#x8BF7;&#x6C42;&#xFF0C;&#x54CD;&#x5E94;HTTP&#x8BF7;&#x6C42;&#xFF0C;&#x90FD;&#x662F;&#x5F88;&#x590D;&#x6742;&#x7684;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x719F;&#x6089;HTTP&#x89C4;&#x8303;&#x3002;&#x7136;&#x540E;&#x624D;&#x80FD;&#x518D;&#x6B64;&#x57FA;&#x7840;&#x4E0A;&#x5199;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x8FD9;&#x6837;&#x8D39;&#x65F6;&#x8D39;&#x529B;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x5E0C;&#x671B;&#x63A5;&#x89E6;&#x5230;TCP&#x8FDE;&#x63A5;&#x3001;HTTP&#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x683C;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x9700;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#xFF0C;&#x63D0;&#x4F9B;&#x63A5;&#x53E3;&#x4F9B;&#x6211;&#x4EEC;&#x8C03;&#x7528;&#x3002;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5C31;&#x662F;WSGI
-wsgiref&#x5C31;&#x662F;python&#x81EA;&#x5E26;&#x7684;web&#x670D;&#x52A1;&#x5668;</p>
-<h3 id="wsgiref&#x6A21;&#x5757;">wsgiref&#x6A21;&#x5757;</h3>
+<p>web &#x5E94;&#x7528;&#x7684;&#x672C;&#x8D28;: &#x6D4F;&#x89C8;&#x5668;&#x53D1; HTTP &#x8BF7;&#x6C42;--&gt;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x8BF7;&#x6C42;&#xFF0C;&#x751F;&#x6210; HTML--&gt;&#x670D;&#x52A1;&#x5668;&#x628A; HTTP &#x54CD;&#x5E94;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;--&gt;&#x6D4F;&#x89C8;&#x5668;&#x63A5;&#x6536; HTTP &#x54CD;&#x5E94;&#xFF0C;&#x5E76;&#x5C55;&#x793A; HTML &#x6587;&#x6863;
+&#x7136;&#x540E;&#x63A5;&#x6536; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x89E3;&#x6790; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x54CD;&#x5E94; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x90FD;&#x662F;&#x5F88;&#x590D;&#x6742;&#x7684;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x719F;&#x6089; HTTP &#x89C4;&#x8303;&#x3002;&#x7136;&#x540E;&#x624D;&#x80FD;&#x518D;&#x6B64;&#x57FA;&#x7840;&#x4E0A;&#x5199;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x8FD9;&#x6837;&#x8D39;&#x65F6;&#x8D39;&#x529B;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x5E0C;&#x671B;&#x63A5;&#x89E6;&#x5230; TCP &#x8FDE;&#x63A5;&#x3001;HTTP &#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x683C;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x9700;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#xFF0C;&#x63D0;&#x4F9B;&#x63A5;&#x53E3;&#x4F9B;&#x6211;&#x4EEC;&#x8C03;&#x7528;&#x3002;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5C31;&#x662F; WSGI
+wsgiref &#x5C31;&#x662F; python &#x81EA;&#x5E26;&#x7684; web &#x670D;&#x52A1;&#x5668;</p>
+<h3 id="wsgiref-&#x6A21;&#x5757;">wsgiref &#x6A21;&#x5757;</h3>
 <h4 id="&#x7B80;&#x5355;&#x8D77;&#x4E2A;&#x670D;&#x52A1;">&#x7B80;&#x5355;&#x8D77;&#x4E2A;&#x670D;&#x52A1;</h4>
 <pre><code class="lang-py"><span class="hljs-keyword">from</span> wsgiref.simple_server <span class="hljs-keyword">import</span> make_server
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">app</span><span class="hljs-params">(environ,start_response)</span>:</span>
@@ -469,11 +454,11 @@ httpd  = make_server(<span class="hljs-string">&apos;&apos;</span>,<span class="
 <span class="hljs-comment"># serve_forever &#x8D77;&#x4E00;&#x4E2A;wsgi&#x670D;&#x52A1;&#x5668;</span>
 httpd.serve_forever()
 </code></pre>
-<h4 id="wsgi&#x670D;&#x52A1;&#x5668;&#x662F;&#x5982;&#x4F55;&#x542F;&#x52A8;&#x7684;">WSGI&#x670D;&#x52A1;&#x5668;&#x662F;&#x5982;&#x4F55;&#x542F;&#x52A8;&#x7684;</h4>
-<p>&#x5148;&#x770B;&#x4E00;&#x4E0B;wsgiref/simple_server.py &#x91CC;&#x9762;&#x6709;&#x4EC0;&#x4E48;</p>
+<h4 id="wsgi-&#x670D;&#x52A1;&#x5668;&#x662F;&#x5982;&#x4F55;&#x542F;&#x52A8;&#x7684;">WSGI &#x670D;&#x52A1;&#x5668;&#x662F;&#x5982;&#x4F55;&#x542F;&#x52A8;&#x7684;</h4>
+<p>&#x5148;&#x770B;&#x4E00;&#x4E0B; wsgiref/simple_server.py &#x91CC;&#x9762;&#x6709;&#x4EC0;&#x4E48;</p>
 <pre><code class="lang-py"><span class="hljs-keyword">from</span> http.server <span class="hljs-keyword">import</span> BaseHTTPRequestHandler, HTTPServer
 <span class="hljs-keyword">from</span> wsgiref.handlers <span class="hljs-keyword">import</span> SimpleHandler
-<span class="hljs-comment"># &#x7EE7;&#x627F;HTTPServer,&#x6700;&#x540E;&#x8C03;&#x7528;&#x7684;serve_forever&#x5C31;&#x662F;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;   </span>
+<span class="hljs-comment"># &#x7EE7;&#x627F;HTTPServer,&#x6700;&#x540E;&#x8C03;&#x7528;&#x7684;serve_forever&#x5C31;&#x662F;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WSGIServer</span><span class="hljs-params">(HTTPServer)</span>:</span>
     application = <span class="hljs-keyword">None</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">server_bind</span><span class="hljs-params">(self)</span>:</span>
@@ -501,9 +486,9 @@ httpd.serve_forever()
         <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> self.headers.items():
             k=k.replace(<span class="hljs-string">&apos;-&apos;</span>,<span class="hljs-string">&apos;_&apos;</span>).upper(); v=v.strip()
             <span class="hljs-keyword">if</span> k <span class="hljs-keyword">in</span> env:
-                <span class="hljs-keyword">continue</span>                   
+                <span class="hljs-keyword">continue</span>
             <span class="hljs-keyword">if</span> <span class="hljs-string">&apos;HTTP_&apos;</span>+k <span class="hljs-keyword">in</span> env:
-                env[<span class="hljs-string">&apos;HTTP_&apos;</span>+k] += <span class="hljs-string">&apos;,&apos;</span>+v     
+                env[<span class="hljs-string">&apos;HTTP_&apos;</span>+k] += <span class="hljs-string">&apos;,&apos;</span>+v
             <span class="hljs-keyword">else</span>:
                 env[<span class="hljs-string">&apos;HTTP_&apos;</span>+k] = v
         <span class="hljs-keyword">return</span> env
@@ -526,7 +511,7 @@ httpd.serve_forever()
 <pre><code class="lang-py"><span class="hljs-keyword">import</span> http.client
 <span class="hljs-keyword">import</span> socketserver
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HTTPServer</span><span class="hljs-params">(socketserver.TCPServer)</span>:</span>
-    allow_reuse_address = <span class="hljs-number">1</span> 
+    allow_reuse_address = <span class="hljs-number">1</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">server_bind</span><span class="hljs-params">(self)</span>:</span>
         socketserver.TCPServer.server_bind(self)
         host, port = self.server_address[:<span class="hljs-number">2</span>]
@@ -607,8 +592,8 @@ httpd.serve_forever()
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">close_request</span><span class="hljs-params">(self, request)</span>:</span>
         request.close()
 </code></pre>
-<p>WSGI&#x670D;&#x52A1;&#x5668;&#x5927;&#x6982;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#xFF0C;&#x5148;&#x6267;&#x884C;wsgiref&#x7684;make_server&#xFF0C;&#x8FD4;&#x56DE;&#x5B9E;&#x4F8B;&#x5316;&#x7684;WSGIServer&#xFF0C;WSGIServer&#x7EE7;&#x627F;&#x4E0E;socketserver.py&#x7684;TCPServer&#x7C7B;&#xFF0C;&#x800C;TCPserver&#x7EE7;&#x627F;&#x4E0E;BaseServer&#x7C7B;&#xFF0C;&#x6700;&#x540E;&#x6267;&#x884C;&#x7684;serve_forever&#x76F8;&#x5F53;&#x4E8E;&#x5C31;&#x662F;BaseServer&#x7684;serve_forever&#x7684;&#x65B9;&#x6CD5;,&#x8BE5;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6B7B;&#x5FAA;&#x73AF;&#xFF0C;&#x4E00;&#x76F4;&#x76D1;&#x542C;&#x662F;&#x5426;&#x6709;&#x8BF7;&#x6C42;&#x8FDB;&#x6765;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5C31;&#x6267;&#x884C;self.process_request&#x5904;&#x7406;request</p>
-<h5 id="wsgiref&#x5904;&#x7406;request">wsgiref&#x5904;&#x7406;request</h5>
+<p>WSGI &#x670D;&#x52A1;&#x5668;&#x5927;&#x6982;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#xFF0C;&#x5148;&#x6267;&#x884C; wsgiref &#x7684; make_server&#xFF0C;&#x8FD4;&#x56DE;&#x5B9E;&#x4F8B;&#x5316;&#x7684; WSGIServer&#xFF0C;WSGIServer &#x7EE7;&#x627F;&#x4E0E; socketserver.py &#x7684; TCPServer &#x7C7B;&#xFF0C;&#x800C; TCPserver &#x7EE7;&#x627F;&#x4E0E; BaseServer &#x7C7B;&#xFF0C;&#x6700;&#x540E;&#x6267;&#x884C;&#x7684; serve_forever &#x76F8;&#x5F53;&#x4E8E;&#x5C31;&#x662F; BaseServer &#x7684; serve_forever &#x7684;&#x65B9;&#x6CD5;,&#x8BE5;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6B7B;&#x5FAA;&#x73AF;&#xFF0C;&#x4E00;&#x76F4;&#x76D1;&#x542C;&#x662F;&#x5426;&#x6709;&#x8BF7;&#x6C42;&#x8FDB;&#x6765;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5C31;&#x6267;&#x884C; self.process_request &#x5904;&#x7406; request</p>
+<h5 id="wsgiref-&#x5904;&#x7406;-request">wsgiref &#x5904;&#x7406; request</h5>
 <p>http/server.py</p>
 <pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BaseHTTPRequestHandler</span><span class="hljs-params">(socketserver.StreamRequestHandler)</span>:</span>
     <span class="hljs-keyword">pass</span>
@@ -632,7 +617,7 @@ httpd.serve_forever()
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StreamRequestHandler</span><span class="hljs-params">(BaseRequestHandler)</span>:</span>
     <span class="hljs-keyword">pass</span>
 </code></pre>
-<p>&#x4E0A;&#x9762;&#x8BF4;&#x4E86;&#x5B9E;&#x73B0;&#x5904;&#x7406;request&#x7684;&#x662F;WSGIRequestHandler,&#x800C;&#x4ED6;&#x7EE7;&#x627F;&#x4E86;BaseRequestHandler&#xFF0C;&#x5E76;&#x91CD;&#x5199;&#x4E86;handle&#x65B9;&#x6CD5;&#xFF0C;&#x5F53;wsgi&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A;&#x6709;&#x8BF7;&#x6C42;&#x8FC7;&#x6765;&#x65F6;&#x5C31;&#x4F1A;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x6B21;WSGIRequestHandler&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x4ED6;&#x7684;handler&#x65B9;&#x6CD5;&#x3002;handle&#x5B9E;&#x4F8B;&#x5316;SimpleHandler&#x5E76;&#x6267;&#x884C;run&#x65B9;&#x6CD5;.</p>
+<p>&#x4E0A;&#x9762;&#x8BF4;&#x4E86;&#x5B9E;&#x73B0;&#x5904;&#x7406; request &#x7684;&#x662F; WSGIRequestHandler,&#x800C;&#x4ED6;&#x7EE7;&#x627F;&#x4E86; BaseRequestHandler&#xFF0C;&#x5E76;&#x91CD;&#x5199;&#x4E86; handle &#x65B9;&#x6CD5;&#xFF0C;&#x5F53; wsgi &#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A;&#x6709;&#x8BF7;&#x6C42;&#x8FC7;&#x6765;&#x65F6;&#x5C31;&#x4F1A;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x6B21; WSGIRequestHandler&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x4ED6;&#x7684; handler &#x65B9;&#x6CD5;&#x3002;handle &#x5B9E;&#x4F8B;&#x5316; SimpleHandler &#x5E76;&#x6267;&#x884C; run &#x65B9;&#x6CD5;.</p>
 <pre><code class="lang-py"><span class="hljs-keyword">from</span> wsgiref.handlers <span class="hljs-keyword">import</span> SimpleHandler
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle</span><span class="hljs-params">(self)</span>:</span>
     self.raw_requestline = self.rfile.readline(<span class="hljs-number">65537</span>)
@@ -708,9 +693,9 @@ httpd.serve_forever()
         self.stdout.flush()
         self._flush = self.stdout.flush
 </code></pre>
-<p>flask&#x548C;django&#x90FD;&#x7528;&#x5230;&#x4E86;wsgiref&#x6A21;&#x5757;&#xFF0C;django&#x662F;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x7684;&#xFF0C;flask&#x662F;&#x95F4;&#x63A5;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x7531;&#x4E8E;&#x5BF9;&#x6027;&#x80FD;&#x7684;&#x9700;&#x6C42;&#xFF0C;wsgiref&#x5F88;&#x5C11;&#x7528;&#x4E8E;&#x7EBF;&#x4E0A;&#x73AF;&#x5883;&#xFF0C;&#x7EBF;&#x4E0A;&#x4E00;&#x822C;&#x7528;nginx+gunicorn+flask&#x642D;&#x914D;&#x4F7F;&#x7528;&#x3002;
-wsgiref&#x8BBE;&#x8BA1;&#x65F6;wsgi &#x670D;&#x52A1;&#x5668;&#x548C;wsgi app &#x662F;&#x5206;&#x5F00;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6211;&#x4EEC;&#x5728;&#x90E8;&#x7F72;&#x9879;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x81EA;&#x5E26;&#x7684;wsgi sever&#xFF0C;&#x4F7F;&#x7528;python web&#x7684;&#x5F00;&#x53D1;&#x4E5F;&#x662F;&#x5F88;&#x7075;&#x6D3B;&#x7684;&#x3002;&#x4E0D;&#x540C;&#x7684;wsgi server &#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x591A;&#x7EBF;&#x7A0B;&#x3001;&#x591A;&#x8FDB;&#x7A0B;&#x3001;&#x534F;&#x7A0B;&#x3002;&#x800C;wsgi app&#x901A;&#x5E38;&#x5C31;&#x662F;&#x6839;&#x636E;&#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x7531;&#x4E0D;&#x540C;&#xFF0C;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;view&#x89C6;&#x56FE;&#x51FD;&#x6570;&#x3002;</p>
-<p>flask,django&#x9ED8;&#x8BA4;&#x90FD;&#x662F;&#x5355;&#x8FDB;&#x7A0B;&#x591A;&#x7EBF;&#x7A0B;&#x7684;</p>
+<p>flask &#x548C; django &#x90FD;&#x7528;&#x5230;&#x4E86; wsgiref &#x6A21;&#x5757;&#xFF0C;django &#x662F;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x7684;&#xFF0C;flask &#x662F;&#x95F4;&#x63A5;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x7531;&#x4E8E;&#x5BF9;&#x6027;&#x80FD;&#x7684;&#x9700;&#x6C42;&#xFF0C;wsgiref &#x5F88;&#x5C11;&#x7528;&#x4E8E;&#x7EBF;&#x4E0A;&#x73AF;&#x5883;&#xFF0C;&#x7EBF;&#x4E0A;&#x4E00;&#x822C;&#x7528; nginx+gunicorn+flask &#x642D;&#x914D;&#x4F7F;&#x7528;&#x3002;
+wsgiref &#x8BBE;&#x8BA1;&#x65F6; wsgi &#x670D;&#x52A1;&#x5668;&#x548C; wsgi app &#x662F;&#x5206;&#x5F00;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6211;&#x4EEC;&#x5728;&#x90E8;&#x7F72;&#x9879;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x81EA;&#x5E26;&#x7684; wsgi sever&#xFF0C;&#x4F7F;&#x7528; python web &#x7684;&#x5F00;&#x53D1;&#x4E5F;&#x662F;&#x5F88;&#x7075;&#x6D3B;&#x7684;&#x3002;&#x4E0D;&#x540C;&#x7684; wsgi server &#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x591A;&#x7EBF;&#x7A0B;&#x3001;&#x591A;&#x8FDB;&#x7A0B;&#x3001;&#x534F;&#x7A0B;&#x3002;&#x800C; wsgi app &#x901A;&#x5E38;&#x5C31;&#x662F;&#x6839;&#x636E;&#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x7531;&#x4E0D;&#x540C;&#xFF0C;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684; view &#x89C6;&#x56FE;&#x51FD;&#x6570;&#x3002;</p>
+<p>flask,django &#x9ED8;&#x8BA4;&#x90FD;&#x662F;&#x5355;&#x8FDB;&#x7A0B;&#x591A;&#x7EBF;&#x7A0B;&#x7684;</p>
 <pre><code class="lang-py"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask
 <span class="hljs-keyword">import</span> os
 <span class="hljs-keyword">import</span> time
@@ -817,7 +802,7 @@ print(time.time()-start)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"WSGI","level":"1.4.2","depth":2,"next":{"title":"数据结构","level":"1.5","depth":1,"path":"data/readme.md","ref":"data/readme.md","articles":[{"title":"排序","level":"1.5.1","depth":2,"path":"data/sort.md","ref":"data/sort.md","articles":[]},{"title":"查找","level":"1.5.2","depth":2,"path":"data/search.md","ref":"data/search.md","articles":[]},{"title":"链表","level":"1.5.3","depth":2,"path":"data/node.md","ref":"data/node.md","articles":[]},{"title":"递归","level":"1.5.4","depth":2,"path":"data/recursion.md","ref":"data/recursion.md","articles":[]}]},"previous":{"title":"计算机网络","level":"1.4.1","depth":2,"path":"web/network.md","ref":"web/network.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"web/base.md","mtime":"2019-07-03T08:08:22.634Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-17T08:02:27.580Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"WSGI","level":"1.4.2","depth":2,"next":{"title":"数据结构","level":"1.5","depth":1,"path":"data/readme.md","ref":"data/readme.md","articles":[{"title":"排序","level":"1.5.1","depth":2,"path":"data/sort.md","ref":"data/sort.md","articles":[]},{"title":"查找","level":"1.5.2","depth":2,"path":"data/search.md","ref":"data/search.md","articles":[]},{"title":"链表","level":"1.5.3","depth":2,"path":"data/node.md","ref":"data/node.md","articles":[]},{"title":"递归","level":"1.5.4","depth":2,"path":"data/recursion.md","ref":"data/recursion.md","articles":[]}]},"previous":{"title":"计算机网络","level":"1.4.1","depth":2,"path":"web/network.md","ref":"web/network.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"web/base.md","mtime":"2020-05-15T00:25:19.717Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T00:34:34.190Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -167,22 +167,7 @@
                     
                         <b>1.2.3.</b>
                     
-                    闭包+上下文管理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.4" data-path="../python/chapter4.html">
-            
-                <a href="../python/chapter4.html">
-            
-                    
-                        <b>1.2.4.</b>
-                    
-                    python练习
+                    闭包
             
                 </a>
             
@@ -454,13 +439,13 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="&#x9012;&#x5F52;">&#x9012;&#x5F52;</h3>
-<p>&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;n,&#x600E;&#x4E48;&#x6C42;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#x7B2C;n&#x9879;&#x7684;&#x503C;&#xFF1F;</p>
+<p>&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A; n,&#x600E;&#x4E48;&#x6C42;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#x7B2C; n &#x9879;&#x7684;&#x503C;&#xFF1F;</p>
 <pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fin</span><span class="hljs-params">(n)</span>:</span>
     <span class="hljs-keyword">if</span> n&lt;=<span class="hljs-number">1</span>:
         <span class="hljs-keyword">return</span> n
     <span class="hljs-keyword">return</span> fin(n<span class="hljs-number">-1</span>)+fin(n<span class="hljs-number">-2</span>)
 </code></pre>
-<p>&#x7531;&#x4E8E;&#x77E5;&#x9053;&#x7B2C;n&#x9879;&#x662F;n-1&#x548C;n-2&#x7684;&#x548C;&#xFF0C;n-1&#x662F;n-1-1&#x548C;n-1-2&#x7684;&#x548C;&#xFF0C;&#x4E00;&#x76F4;&#x5F80;&#x540E;&#x63A8;&#xFF0C;&#x4E0A;&#x9762;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x9012;&#x5F52;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x77E5;&#x9053;&#x7B2C; n &#x9879;&#x662F; n-1 &#x548C; n-2 &#x7684;&#x548C;&#xFF0C;n-1 &#x662F; n-1-1 &#x548C; n-1-2 &#x7684;&#x548C;&#xFF0C;&#x4E00;&#x76F4;&#x5F80;&#x540E;&#x63A8;&#xFF0C;&#x4E0A;&#x9762;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x9012;&#x5F52;&#x3002;</p>
 <p>&#x9012;&#x5F52;&#x7684;&#x6838;&#x5FC3;&#x601D;&#x60F3;&#x662F;&#x628A;&#x4E00;&#x4E2A;&#x5927;&#x800C;&#x590D;&#x6742;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5206;&#x6210;&#x4E00;&#x4E9B;&#x5C0F;&#x800C;&#x7B80;&#x5355;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x901A;&#x8FC7;&#x89E3;&#x51B3;&#x8FD9;&#x4E9B;&#x5C0F;&#x95EE;&#x9898;&#x6765;&#x89E3;&#x51B3;&#x4E00;&#x4E2A;&#x5927;&#x95EE;&#x9898;&#x3002;</p>
 <p>&#x9012;&#x5F52;&#x6709;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x89C4;&#x5F8B;</p>
 <ul>
@@ -469,7 +454,7 @@
 <li>&#x9012;&#x5F52;&#x8C03;&#x7528;&#x672C;&#x8EAB;</li>
 </ul>
 <p>&#x8D27;&#x5E01;&#x627E;&#x96F6;&#x95EE;&#x9898;
-coins = [1,5,10,25], &#x627E;&#x96F6;63&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x627E;&#x96F6;&#x7684;&#x6700;&#x5C0F;&#x6570;&#x91CF;&#x7684;&#x786C;&#x5E01;&#x662F;&#x591A;&#x5C11;&#xFF1F;</p>
+coins = [1,5,10,25], &#x627E;&#x96F6; 63&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x627E;&#x96F6;&#x7684;&#x6700;&#x5C0F;&#x6570;&#x91CF;&#x7684;&#x786C;&#x5E01;&#x662F;&#x591A;&#x5C11;&#xFF1F;</p>
 <h3 id="&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x7740;&#x773C;&#x4E8E;&#x5F53;&#x4E0B;&#xFF0C;&#x5C40;&#x90E8;&#x6700;&#x4F18;&#x5316;">&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;(&#x7740;&#x773C;&#x4E8E;&#x5F53;&#x4E0B;&#xFF0C;&#x5C40;&#x90E8;&#x6700;&#x4F18;&#x5316;)</h3>
 <pre><code class="lang-py">v = [<span class="hljs-number">25</span>,<span class="hljs-number">10</span>,<span class="hljs-number">5</span>,<span class="hljs-number">1</span>]
 n = [<span class="hljs-number">0</span>]*len(v)
@@ -492,6 +477,8 @@ greedy(<span class="hljs-number">63</span>)
 print(sum(n))
 </code></pre>
 <h3 id="&#x52A8;&#x6001;&#x89C4;&#x5212;&#x5168;&#x5C40;&#x6700;&#x4F18;&#x5316;">&#x52A8;&#x6001;&#x89C4;&#x5212;(&#x5168;&#x5C40;&#x6700;&#x4F18;&#x5316;)</h3>
+<p>&#x600E;&#x4E48;&#x7406;&#x89E3;:
+&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x628A;&#x5927;&#x95EE;&#x9898;&#x5207;&#x6210;&#x5C0F;&#x95EE;&#x9898;,&#x8FD8;&#x9700;&#x8981;&#x4FDD;&#x5B58;&#x6BCF;&#x4E00;&#x6B65;&#x7684;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;,&#x56E0;&#x4E3A;&#x4E0B;&#x4E00;&#x6B65;&#x8981;&#x7528;</p>
 <pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recMC</span><span class="hljs-params">(coinValueList,change)</span>:</span>
    minCoins = change
    <span class="hljs-keyword">if</span> change <span class="hljs-keyword">in</span> coinValueList:
@@ -505,6 +492,38 @@ print(sum(n))
 print(recMC([<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">25</span>],<span class="hljs-number">63</span>))
 </code></pre>
 <p>&#x8FD0;&#x884C;&#x5F88;&#x6162;&#xFF0C;&#x4EE3;&#x7801;&#x8FD8;&#x5F85;&#x4F18;&#x5316;</p>
+<h3 id="&#x4F18;&#x5316;">&#x4F18;&#x5316;</h3>
+<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dpMakeChange</span><span class="hljs-params">(coinValueList,change,minCoins,coinsUsed)</span>:</span>
+   <span class="hljs-keyword">for</span> cents <span class="hljs-keyword">in</span> range(change+<span class="hljs-number">1</span>):
+      coinCount = cents
+      newCoin = <span class="hljs-number">1</span>
+      <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> [c <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> coinValueList <span class="hljs-keyword">if</span> c &lt;= cents]:
+            <span class="hljs-keyword">if</span> minCoins[cents-j] + <span class="hljs-number">1</span> &lt; coinCount:
+               coinCount = minCoins[cents-j]+<span class="hljs-number">1</span>
+               newCoin = j
+      minCoins[cents] = coinCount
+      coinsUsed[cents] = newCoin
+   <span class="hljs-keyword">return</span> minCoins[change]
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printCoins</span><span class="hljs-params">(coinsUsed,change)</span>:</span>
+   coin = change
+   <span class="hljs-keyword">while</span> coin &gt; <span class="hljs-number">0</span>:
+      thisCoin = coinsUsed[coin]
+      print(thisCoin)
+      coin = coin - thisCoin
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    amnt = <span class="hljs-number">63</span>
+    clist = [<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">21</span>,<span class="hljs-number">25</span>]
+    coinsUsed = [<span class="hljs-number">0</span>]*(amnt+<span class="hljs-number">1</span>)
+    coinCount = [<span class="hljs-number">0</span>]*(amnt+<span class="hljs-number">1</span>)
+    print(<span class="hljs-string">&quot;Making change for&quot;</span>,amnt,<span class="hljs-string">&quot;requires&quot;</span>)
+    print(dpMakeChange(clist,amnt,coinCount,coinsUsed),<span class="hljs-string">&quot;coins&quot;</span>)
+    print(<span class="hljs-string">&quot;They are:&quot;</span>)
+    printCoins(coinsUsed,amnt)
+    print(<span class="hljs-string">&quot;The used list is as follows:&quot;</span>)
+    print(coinsUsed)
+</code></pre>
 
                                 
                                 </section>
@@ -544,7 +563,7 @@ print(recMC([<span class="hljs-number">1</span>,<span class="hljs-number">5</spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"递归","level":"1.5.4","depth":2,"previous":{"title":"链表","level":"1.5.3","depth":2,"path":"data/node.md","ref":"data/node.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"data/recursion.md","mtime":"2019-07-17T07:43:18.996Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-17T08:02:27.580Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"递归","level":"1.5.4","depth":2,"previous":{"title":"链表","level":"1.5.3","depth":2,"path":"data/node.md","ref":"data/node.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"data/recursion.md","mtime":"2020-05-15T00:25:19.671Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T00:34:34.190Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

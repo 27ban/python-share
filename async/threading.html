@@ -169,22 +169,7 @@
                     
                         <b>1.2.3.</b>
                     
-                    闭包+上下文管理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.4" data-path="../python/chapter4.html">
-            
-                <a href="../python/chapter4.html">
-            
-                    
-                        <b>1.2.4.</b>
-                    
-                    python练习
+                    闭包
             
                 </a>
             
@@ -469,30 +454,30 @@ t = threading.Thread(target=loop,name=<span class="hljs-string">&quot;Loop&quot;
 t.start()
 t.join()
 </code></pre>
-<h4 id="&#x591A;&#x7EBF;&#x7A0B;&#x4E0E;&#x591A;&#x6838;cpu">&#x591A;&#x7EBF;&#x7A0B;&#x4E0E;&#x591A;&#x6838;CPU</h4>
+<h4 id="&#x591A;&#x7EBF;&#x7A0B;&#x4E0E;&#x591A;&#x6838;-cpu">&#x591A;&#x7EBF;&#x7A0B;&#x4E0E;&#x591A;&#x6838; CPU</h4>
 <pre><code class="lang-py"><span class="hljs-keyword">import</span> threading,multiprocessing
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span>:</span>
-    x = <span class="hljs-number">0</span> 
+    x = <span class="hljs-number">0</span>
     <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
         x +=<span class="hljs-number">2</span>
 <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(multiprocessing.cpu_count()):
     t = threading.Thread(target=loop)
     t.start()
 </code></pre>
-<p>&#x53D1;&#x73B0;&#x591A;&#x7EBF;&#x7A0B;&#x53EA;&#x5728;&#x5355;&#x4E2A;CPU&#x4E0A;&#x6267;&#x884C;&#x3002;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x80FD;&#x5145;&#x5206;&#x5229;&#x7528;&#x591A;&#x6838;CPU&#x5462;&#xFF1F;</p>
+<p>&#x53D1;&#x73B0;&#x591A;&#x7EBF;&#x7A0B;&#x53EA;&#x5728;&#x5355;&#x4E2A; CPU &#x4E0A;&#x6267;&#x884C;&#x3002;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x80FD;&#x5145;&#x5206;&#x5229;&#x7528;&#x591A;&#x6838; CPU &#x5462;&#xFF1F;</p>
 <h4 id="gil&#x5168;&#x5C40;&#x89E3;&#x91CA;&#x9501;">GIL(&#x5168;&#x5C40;&#x89E3;&#x91CA;&#x9501;)</h4>
-<p>Python&#x6267;&#x884C;&#x8FC7;&#x7A0B;</p>
+<p>Python &#x6267;&#x884C;&#x8FC7;&#x7A0B;</p>
 <p>&#x5199;&#x5728;&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x662F;&#x4E3A;&#x4E86;&#x4EBA;&#x7C7B;&#x53EF;&#x8BFB;&#xFF0C;&#x673A;&#x5668;&#x6839;&#x672C;&#x4E0D;&#x77E5;&#x9053;&#x4ED6;&#x662F;&#x4EC0;&#x4E48;&#x9B3C;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x8F6C;&#x5316;&#x4E3A;&#x673A;&#x5668;&#x8BA4;&#x8BC6;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x5C31;&#x662F;&#x7F16;&#x8BD1;&#x3002;
-python&#x540C;&#x6837;&#x4E5F;&#x6709;&#x7F16;&#x8BD1;&#x7684;&#x6B65;&#x9AA4;&#xFF0C;&#x901A;&#x5E38;python&#x628A;.py&#x6E90;&#x6587;&#x4EF6;&#x7F16;&#x8BD1;&#x6210;.pyc&#x7C7B;&#x578B;&#x7684;&#x5B57;&#x8282;&#x7801;&#x6587;&#x4EF6;,&#x548C;CPU&#x6307;&#x4EE4;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;.pyc&#x5E76;&#x4E0D;&#x88AB;cpu&#x6267;&#x884C;&#xFF0C;&#x800C;&#x662F;&#x7531;python&#x865A;&#x62DF;&#x673A;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;python&#x865A;&#x62DF;&#x673A;&#x5C31;&#x662F;&#x6240;&#x8BF4;&#x7684;python&#x89E3;&#x91CA;&#x5668;&#x3002;</p>
-<p>&#x7528;&#x7684;&#x6700;&#x591A;&#x7684;&#x89E3;&#x91CA;&#x5668;Cpython&#x89E3;&#x91CA;&#x5668;&#xFF0C;&#x56E0;&#x4E3A;&#x662F;&#x7528;C&#x8BED;&#x8A00;&#x5199;&#x7684;&#x3002;&#x8BBE;&#x8BA1;&#x4E4B;&#x521D;&#xFF0C;&#x4E3A;&#x4E86;&#x6570;&#x636E;&#x5B89;&#x5168;&#xFF0C;&#x52A0;&#x4E86;&#x9501;&#x3002;&#x8FD9;&#x4E2A;&#x9501;&#x5C31;&#x662F;GIL</p>
+python &#x540C;&#x6837;&#x4E5F;&#x6709;&#x7F16;&#x8BD1;&#x7684;&#x6B65;&#x9AA4;&#xFF0C;&#x901A;&#x5E38; python &#x628A;.py &#x6E90;&#x6587;&#x4EF6;&#x7F16;&#x8BD1;&#x6210;.pyc &#x7C7B;&#x578B;&#x7684;&#x5B57;&#x8282;&#x7801;&#x6587;&#x4EF6;,&#x548C; CPU &#x6307;&#x4EE4;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;.pyc &#x5E76;&#x4E0D;&#x88AB; cpu &#x6267;&#x884C;&#xFF0C;&#x800C;&#x662F;&#x7531; python &#x865A;&#x62DF;&#x673A;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x91CC;&#x7684; python &#x865A;&#x62DF;&#x673A;&#x5C31;&#x662F;&#x6240;&#x8BF4;&#x7684; python &#x89E3;&#x91CA;&#x5668;&#x3002;</p>
+<p>&#x7528;&#x7684;&#x6700;&#x591A;&#x7684;&#x89E3;&#x91CA;&#x5668; Cpython &#x89E3;&#x91CA;&#x5668;&#xFF0C;&#x56E0;&#x4E3A;&#x662F;&#x7528; C &#x8BED;&#x8A00;&#x5199;&#x7684;&#x3002;&#x8BBE;&#x8BA1;&#x4E4B;&#x521D;&#xFF0C;&#x4E3A;&#x4E86;&#x6570;&#x636E;&#x5B89;&#x5168;&#xFF0C;&#x52A0;&#x4E86;&#x9501;&#x3002;&#x8FD9;&#x4E2A;&#x9501;&#x5C31;&#x662F; GIL</p>
 <p>&#x5355;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x6B65;&#x9AA4;:</p>
 <ul>
-<li>&#x83B7;&#x53D6;GIL</li>
+<li>&#x83B7;&#x53D6; GIL</li>
 <li>&#x6267;&#x884C;&#x4EE3;&#x7801;</li>
-<li>&#x91CA;&#x653E;GIL&#x9501;</li>
+<li>&#x91CA;&#x653E; GIL &#x9501;</li>
 </ul>
-<p>&#x7531;&#x4E8E;&#x6709;GIL&#x9501;&#x7684;&#x5B58;&#x5728;&#xFF0C;python&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x91CC;&#x6C38;&#x8FDC;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5728;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x5C31;&#x662F;&#x62A2;&#x5230;GIL&#x9501;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E0D;&#x7136;&#x5C31;&#x7B49;&#x5F85;GIL&#x9501;&#x7684;&#x91CA;&#x653E;&#x3002;&#x6BCF;&#x6B21;GIL&#x7684;&#x91CA;&#x653E;&#xFF0C;&#x7EBF;&#x7A0B;&#x5C31;&#x5404;&#x79CD;&#x9501;&#x7ADE;&#x4E89;&#x3001;&#x5207;&#x6362;&#x3002;&#x6240;&#x4EE5;python&#x4E2D;&#x7684;&#x591A;&#x7EBF;&#x7A0B;&#x5E76;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x7684;&#x591A;&#x7EBF;&#x7A0B;&#x3002;</p>
-<h4 id="&#x591A;&#x7EBF;&#x7A0B;&#x4E2D;join&#x7684;&#x7528;&#x6CD5;">&#x591A;&#x7EBF;&#x7A0B;&#x4E2D;Join&#x7684;&#x7528;&#x6CD5;</h4>
+<p>&#x7531;&#x4E8E;&#x6709; GIL &#x9501;&#x7684;&#x5B58;&#x5728;&#xFF0C;python &#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x91CC;&#x6C38;&#x8FDC;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5728;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x5C31;&#x662F;&#x62A2;&#x5230; GIL &#x9501;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E0D;&#x7136;&#x5C31;&#x7B49;&#x5F85; GIL &#x9501;&#x7684;&#x91CA;&#x653E;&#x3002;&#x6BCF;&#x6B21; GIL &#x7684;&#x91CA;&#x653E;&#xFF0C;&#x7EBF;&#x7A0B;&#x5C31;&#x5404;&#x79CD;&#x9501;&#x7ADE;&#x4E89;&#x3001;&#x5207;&#x6362;&#x3002;&#x6240;&#x4EE5; python &#x4E2D;&#x7684;&#x591A;&#x7EBF;&#x7A0B;&#x5E76;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x7684;&#x591A;&#x7EBF;&#x7A0B;&#x3002;</p>
+<h4 id="&#x591A;&#x7EBF;&#x7A0B;&#x4E2D;-join-&#x7684;&#x7528;&#x6CD5;">&#x591A;&#x7EBF;&#x7A0B;&#x4E2D; Join &#x7684;&#x7528;&#x6CD5;</h4>
 <h5 id="&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;">&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;</h5>
 <pre><code class="lang-py"><span class="hljs-keyword">import</span> threading,time
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">()</span>:</span>
@@ -526,7 +511,7 @@ print(<span class="hljs-string">&apos;Main End&apos;</span>,threading.current_th
 print(time.time()-start_time)
 </code></pre>
 <p>&#x4E3B;&#x7EBF;&#x7A0B;&#x7ED3;&#x675F;,&#x7A0B;&#x5E8F;&#x7ED3;&#x675F;&#xFF0C;&#x5B50;&#x7EBF;&#x7A0B;&#x8FD8;&#x6CA1;&#x6765;&#x5F97;&#x53CA;&#x6267;&#x884C;</p>
-<h5 id="join&#x7684;&#x7528;&#x6CD5;">Join&#x7684;&#x7528;&#x6CD5;</h5>
+<h5 id="join-&#x7684;&#x7528;&#x6CD5;">Join &#x7684;&#x7528;&#x6CD5;</h5>
 <pre><code class="lang-py"><span class="hljs-keyword">import</span> threading,time
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">()</span>:</span>
     time.sleep(<span class="hljs-number">2</span>)
@@ -563,7 +548,7 @@ t2.join()
 print(balance)
 </code></pre>
 <p>&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x8BFB;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x53D8;&#x91CF;&#x5F02;&#x5E38;&#xFF0C;&#x56E0;&#x4E3A;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x4E0D;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x9700;&#x8981;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x3002;</p>
-<h5 id="&#x7EBF;&#x7A0B;&#x9501;lock">&#x7EBF;&#x7A0B;&#x9501;Lock</h5>
+<h5 id="&#x7EBF;&#x7A0B;&#x9501;-lock">&#x7EBF;&#x7A0B;&#x9501; Lock</h5>
 <pre><code class="lang-py"><span class="hljs-keyword">import</span> time,threading
 balance = <span class="hljs-number">0</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">change_it</span><span class="hljs-params">(n)</span>:</span>
@@ -672,7 +657,7 @@ exitFlag = <span class="hljs-number">1</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"多线程","level":"1.3.2","depth":2,"next":{"title":"多进程","level":"1.3.3","depth":2,"path":"async/multiprocess.md","ref":"async/multiprocess.md","articles":[]},"previous":{"title":"计算机基础","level":"1.3.1","depth":2,"path":"async/base.md","ref":"async/base.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"async/threading.md","mtime":"2019-06-18T07:45:48.713Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-17T08:02:27.580Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"多线程","level":"1.3.2","depth":2,"next":{"title":"多进程","level":"1.3.3","depth":2,"path":"async/multiprocess.md","ref":"async/multiprocess.md","articles":[]},"previous":{"title":"计算机基础","level":"1.3.1","depth":2,"path":"async/base.md","ref":"async/base.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"async/threading.md","mtime":"2020-05-15T00:25:19.670Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T00:34:34.190Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

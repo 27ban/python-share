@@ -169,22 +169,7 @@
                     
                         <b>1.2.3.</b>
                     
-                    闭包+上下文管理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.4" data-path="../python/chapter4.html">
-            
-                <a href="../python/chapter4.html">
-            
-                    
-                        <b>1.2.4.</b>
-                    
-                    python练习
+                    闭包
             
                 </a>
             
@@ -456,57 +441,61 @@
                                 <section class="normal markdown-section">
                                 
                                 <h4 id="&#x641C;&#x7D22;">&#x641C;&#x7D22;</h4>
-<p>&#x5728;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x627E;&#x7279;&#x5B9A;&#x9879;&#xFF0C;&#x627E;&#x5230;&#x8FD4;&#x56DE;True,&#x5426;&#x5219;&#x8FD4;&#x56DE;False</p>
+<p>&#x5728;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x627E;&#x7279;&#x5B9A;&#x9879;&#xFF0C;&#x627E;&#x5230;&#x8FD4;&#x56DE; True,&#x5426;&#x5219;&#x8FD4;&#x56DE; False</p>
 <ul>
-<li>&#x987A;&#x5E8F;<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">search</span><span class="hljs-params">(alist,item)</span>:</span>
-  found = <span class="hljs-keyword">False</span>
-  index = <span class="hljs-number">0</span>
-  <span class="hljs-keyword">while</span> index&lt;len(alist) <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> found:
-      <span class="hljs-keyword">if</span> alist[index] == item:
-          found =<span class="hljs-keyword">True</span>
-      <span class="hljs-keyword">else</span>:
-          index +=<span class="hljs-number">1</span>
-  <span class="hljs-keyword">return</span> found
+<li>&#x987A;&#x5E8F;</li>
+</ul>
+<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">search</span><span class="hljs-params">(alist,item)</span>:</span>
+    found = <span class="hljs-keyword">False</span>
+    index = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">while</span> index&lt;len(alist) <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> found:
+        <span class="hljs-keyword">if</span> alist[index] == item:
+            found =<span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">else</span>:
+            index +=<span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> found
 alist = [<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">10</span>,<span class="hljs-number">28</span>,<span class="hljs-number">6</span>]
 print(search(alist,<span class="hljs-number">6</span>))
 </code></pre>
-</li>
-<li>&#x4E8C;&#x5206;&#x67E5;&#x627E;<pre><code class="lang-py"><span class="hljs-comment"># &#x9996;&#x5148;&#x60F3;&#x5230;&#x7684;&#x5199;&#x6CD5;</span>
+<ul>
+<li>&#x4E8C;&#x5206;&#x67E5;&#x627E;</li>
+</ul>
+<pre><code class="lang-py"><span class="hljs-comment"># &#x9996;&#x5148;&#x60F3;&#x5230;&#x7684;&#x5199;&#x6CD5;</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">binarySearch</span><span class="hljs-params">(alist,item)</span>:</span>
-  first = <span class="hljs-number">0</span>
-  last = len(alist)<span class="hljs-number">-1</span>
-  found = <span class="hljs-keyword">False</span>
-  <span class="hljs-keyword">while</span> first&lt;last <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> found:
-      mid = (first+last)//<span class="hljs-number">2</span>
-      <span class="hljs-keyword">if</span> alist[mid] == item:
-          found = <span class="hljs-keyword">True</span>
-      <span class="hljs-keyword">else</span>:
-          <span class="hljs-keyword">if</span> item &lt;alist[mid]:
-              last = mid<span class="hljs-number">-1</span>
-          <span class="hljs-keyword">else</span>:
-              first = mid+<span class="hljs-number">1</span>
-  <span class="hljs-keyword">return</span> found
+    first = <span class="hljs-number">0</span>
+    last = len(alist)<span class="hljs-number">-1</span>
+    found = <span class="hljs-keyword">False</span>
+    <span class="hljs-keyword">while</span> first&lt;last <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> found:
+        mid = (first+last)//<span class="hljs-number">2</span>
+        <span class="hljs-keyword">if</span> alist[mid] == item:
+            found = <span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> item &lt;alist[mid]:
+                last = mid<span class="hljs-number">-1</span>
+            <span class="hljs-keyword">else</span>:
+                first = mid+<span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> found
 alist = [<span class="hljs-number">5</span>,<span class="hljs-number">9</span>,<span class="hljs-number">12</span>,<span class="hljs-number">15</span>,<span class="hljs-number">25</span>,<span class="hljs-number">37</span>,<span class="hljs-number">48</span>]
 print(binarySearch(alist,<span class="hljs-number">37</span>))
 </code></pre>
 <pre><code class="lang-py"><span class="hljs-comment"># &#x9012;&#x5F52;&#x5199;&#x6CD5;</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">binarySearch</span><span class="hljs-params">(alist,item)</span>:</span>
-  <span class="hljs-keyword">if</span> len(alist) == <span class="hljs-number">0</span>:
-      <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
-  <span class="hljs-keyword">else</span>:
-      mid = len(alist)//<span class="hljs-number">2</span>
-      <span class="hljs-keyword">if</span> item == alist[mid]:
-          <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
-      <span class="hljs-keyword">else</span>:
-          <span class="hljs-keyword">if</span> item&lt;alist[mid]:
-              <span class="hljs-keyword">return</span> binarySearch(alist[:mid],item)
-          <span class="hljs-keyword">else</span>:
-              <span class="hljs-keyword">return</span> binarySearch(alist[mid+<span class="hljs-number">1</span>:],item)
+    <span class="hljs-keyword">if</span> len(alist) == <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+    <span class="hljs-keyword">else</span>:
+        mid = len(alist)//<span class="hljs-number">2</span>
+        <span class="hljs-keyword">if</span> item == alist[mid]:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> item&lt;alist[mid]:
+                <span class="hljs-keyword">return</span> binarySearch(alist[:mid],item)
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-keyword">return</span> binarySearch(alist[mid+<span class="hljs-number">1</span>:],item)
 alist = [<span class="hljs-number">5</span>,<span class="hljs-number">9</span>,<span class="hljs-number">12</span>,<span class="hljs-number">15</span>,<span class="hljs-number">25</span>,<span class="hljs-number">37</span>,<span class="hljs-number">48</span>]
 print(binarySearch(alist,<span class="hljs-number">37</span>))
 </code></pre>
-</li>
-<li>Hash&#x8868;
+<ul>
+<li>Hash &#x8868;
 &#x8FD8;&#x6CA1;&#x641E;&#x660E;&#x767D;</li>
 </ul>
 
@@ -552,7 +541,7 @@ print(binarySearch(alist,<span class="hljs-number">37</span>))
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"查找","level":"1.5.2","depth":2,"next":{"title":"链表","level":"1.5.3","depth":2,"path":"data/node.md","ref":"data/node.md","articles":[]},"previous":{"title":"排序","level":"1.5.1","depth":2,"path":"data/sort.md","ref":"data/sort.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"data/search.md","mtime":"2019-07-17T06:17:02.419Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-17T08:02:27.580Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"查找","level":"1.5.2","depth":2,"next":{"title":"链表","level":"1.5.3","depth":2,"path":"data/node.md","ref":"data/node.md","articles":[]},"previous":{"title":"排序","level":"1.5.1","depth":2,"path":"data/sort.md","ref":"data/sort.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"data/search.md","mtime":"2020-05-15T00:25:19.671Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T00:34:34.190Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
