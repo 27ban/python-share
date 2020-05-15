@@ -47,7 +47,7 @@ test()
 print(l)
 ```
 
-##### 1.用 global 声明(不可变类型) 2.如果是可变类型的话可以直接修改
+##### 用 global 声明(不可变类型) 2.如果是可变类型的话可以直接修改
 
 ```py
 def outer():
@@ -78,22 +78,8 @@ a(12)
 
 ##### 每次调用内函数都在使用同一份闭包变量
 
-#### 应用场景
+#### 应用场景(装饰器)
 
-- 装饰器
-
-```py
-def log(func):
-    def wrapper(*args,**kw):
-        print("write_log")
-        return func(*args,**kw)
-    return wrapper
-@log
-def h():
-    print('test')
-h()
-# log(h).__closure__
-```
 
 - 装饰器执行顺序
 
@@ -118,6 +104,66 @@ def log():
 log()
 # a(b(log))()
 ```
+
+- 类装饰器
+
+```python
+def log(f):
+    print('log enter')
+    def wraps(*args,**kwargs):
+        return f(*args,**kwargs)
+    return wraps
+@log
+class Base(object):
+    def __init__(self):
+        print('class __init__')
+```
+
+- 装饰器加参数
+
+```python
+def log(level, message=None):
+    def decorate(func):
+        def wrapper(*args,**kwargs):
+            print(level, message)
+            return func(*args,**kwargs)
+        return wrapper
+    return decorate
+@log('INFO',message='ok')
+def test():
+    print('test')
+
+```
+
+
+
+- 装饰器的副作用
+
+```python
+from functools import  wraps
+def log(func):
+    @wraps(func)
+    def wrappers(*args,**kwargs):
+        '''
+        wrappers
+        '''
+        return func(*args,**kwargs)
+    return wrappers
+@log
+def test():
+    '''
+    test
+    '''
+    print('hello world')
+
+print(test.__name__,test.__doc__)
+# ('wrappers', '\n        wrappers\n        ')
+# 加wraps后
+# ('test', '\n    test\n    ')
+
+```
+被装饰后的函数已经编程了另外一个函数，函数名属性都会发生变化，所以需要消除这些影响。
+wraps实际上是把这些属性重新改来一下。
 
 
 

@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../async/readme.html" />
+    <link rel="next" href="except.html" />
     
     
-    <link rel="prev" href="chapter2.html" />
+    <link rel="prev" href="module.html" />
     
 
     </head>
@@ -132,9 +132,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="chapter1.html">
+        <li class="chapter " data-level="1.2.1" data-path="data-type.html">
             
-                <a href="chapter1.html">
+                <a href="data-type.html">
             
                     
                         <b>1.2.1.</b>
@@ -147,12 +147,27 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="chapter2.html">
+        <li class="chapter " data-level="1.2.2" data-path="func.html">
             
-                <a href="chapter2.html">
+                <a href="func.html">
             
                     
                         <b>1.2.2.</b>
+                    
+                    高阶函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="class.html">
+            
+                <a href="class.html">
+            
+                    
+                        <b>1.2.3.</b>
                     
                     面向对象
             
@@ -162,14 +177,59 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="chapter3.html">
+        <li class="chapter " data-level="1.2.4" data-path="control.html">
             
-                <a href="chapter3.html">
+                <a href="control.html">
             
                     
-                        <b>1.2.3.</b>
+                        <b>1.2.4.</b>
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="module.html">
+            
+                <a href="module.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    模块和包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.6" data-path="decorator.html">
+            
+                <a href="decorator.html">
+            
+                    
+                        <b>1.2.6.</b>
                     
                     闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="except.html">
+            
+                <a href="except.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    异常
             
                 </a>
             
@@ -476,7 +536,7 @@ print(a)
 test()
 print(l)
 </code></pre>
-<h5 id="1&#x7528;-global-&#x58F0;&#x660E;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;-2&#x5982;&#x679C;&#x662F;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539;">1.&#x7528; global &#x58F0;&#x660E;(&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;) 2.&#x5982;&#x679C;&#x662F;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539;</h5>
+<h5 id="&#x7528;-global-&#x58F0;&#x660E;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;-2&#x5982;&#x679C;&#x662F;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539;">&#x7528; global &#x58F0;&#x660E;(&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;) 2.&#x5982;&#x679C;&#x662F;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539;</h5>
 <pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">outer</span><span class="hljs-params">()</span>:</span>
     a = <span class="hljs-number">10</span>
     b = [<span class="hljs-number">123</span>]
@@ -500,21 +560,7 @@ a(<span class="hljs-number">10</span>)
 a(<span class="hljs-number">12</span>)
 </code></pre>
 <h5 id="&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x5185;&#x51FD;&#x6570;&#x90FD;&#x5728;&#x4F7F;&#x7528;&#x540C;&#x4E00;&#x4EFD;&#x95ED;&#x5305;&#x53D8;&#x91CF;">&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x5185;&#x51FD;&#x6570;&#x90FD;&#x5728;&#x4F7F;&#x7528;&#x540C;&#x4E00;&#x4EFD;&#x95ED;&#x5305;&#x53D8;&#x91CF;</h5>
-<h4 id="&#x5E94;&#x7528;&#x573A;&#x666F;">&#x5E94;&#x7528;&#x573A;&#x666F;</h4>
-<ul>
-<li>&#x88C5;&#x9970;&#x5668;</li>
-</ul>
-<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">log</span><span class="hljs-params">(func)</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args,**kw)</span>:</span>
-        print(<span class="hljs-string">&quot;write_log&quot;</span>)
-        <span class="hljs-keyword">return</span> func(*args,**kw)
-    <span class="hljs-keyword">return</span> wrapper
-<span class="hljs-meta">@log</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">h</span><span class="hljs-params">()</span>:</span>
-    print(<span class="hljs-string">&apos;test&apos;</span>)
-h()
-<span class="hljs-comment"># log(h).__closure__</span>
-</code></pre>
+<h4 id="&#x5E94;&#x7528;&#x573A;&#x666F;&#x88C5;&#x9970;&#x5668;">&#x5E94;&#x7528;&#x573A;&#x666F;(&#x88C5;&#x9970;&#x5668;)</h4>
 <ul>
 <li>&#x88C5;&#x9970;&#x5668;&#x6267;&#x884C;&#x987A;&#x5E8F;</li>
 </ul>
@@ -538,6 +584,59 @@ h()
 log()
 <span class="hljs-comment"># a(b(log))()</span>
 </code></pre>
+<ul>
+<li>&#x7C7B;&#x88C5;&#x9970;&#x5668;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">log</span><span class="hljs-params">(f)</span>:</span>
+    print(<span class="hljs-string">&apos;log enter&apos;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wraps</span><span class="hljs-params">(*args,**kwargs)</span>:</span>
+        <span class="hljs-keyword">return</span> f(*args,**kwargs)
+    <span class="hljs-keyword">return</span> wraps
+<span class="hljs-meta">@log</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Base</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;class __init__&apos;</span>)
+</code></pre>
+<ul>
+<li>&#x88C5;&#x9970;&#x5668;&#x52A0;&#x53C2;&#x6570;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">log</span><span class="hljs-params">(level, message=None)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorate</span><span class="hljs-params">(func)</span>:</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args,**kwargs)</span>:</span>
+            print(level, message)
+            <span class="hljs-keyword">return</span> func(*args,**kwargs)
+        <span class="hljs-keyword">return</span> wrapper
+    <span class="hljs-keyword">return</span> decorate
+<span class="hljs-meta">@log(&apos;INFO&apos;,message=&apos;ok&apos;)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">&apos;test&apos;</span>)
+</code></pre>
+<ul>
+<li>&#x88C5;&#x9970;&#x5668;&#x7684;&#x526F;&#x4F5C;&#x7528;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span>  wraps
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">log</span><span class="hljs-params">(func)</span>:</span>
+<span class="hljs-meta">    @wraps(func)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrappers</span><span class="hljs-params">(*args,**kwargs)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;
+        wrappers
+        &apos;&apos;&apos;</span>
+        <span class="hljs-keyword">return</span> func(*args,**kwargs)
+    <span class="hljs-keyword">return</span> wrappers
+<span class="hljs-meta">@log</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    test
+    &apos;&apos;&apos;</span>
+    print(<span class="hljs-string">&apos;hello world&apos;</span>)
+
+print(test.__name__,test.__doc__)
+<span class="hljs-comment"># (&apos;wrappers&apos;, &apos;\n        wrappers\n        &apos;)</span>
+<span class="hljs-comment"># &#x52A0;wraps&#x540E;</span>
+<span class="hljs-comment"># (&apos;test&apos;, &apos;\n    test\n    &apos;)</span>
+</code></pre>
+<p>&#x88AB;&#x88C5;&#x9970;&#x540E;&#x7684;&#x51FD;&#x6570;&#x5DF2;&#x7ECF;&#x7F16;&#x7A0B;&#x4E86;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x51FD;&#x6570;&#x540D;&#x5C5E;&#x6027;&#x90FD;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x6D88;&#x9664;&#x8FD9;&#x4E9B;&#x5F71;&#x54CD;&#x3002;
+wraps&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x628A;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x91CD;&#x65B0;&#x6539;&#x6765;&#x4E00;&#x4E0B;&#x3002;</p>
 
                                 
                                 </section>
@@ -565,12 +664,12 @@ log()
 
             
                 
-                <a href="chapter2.html" class="navigation navigation-prev " aria-label="Previous page: 面向对象">
+                <a href="module.html" class="navigation navigation-prev " aria-label="Previous page: 模块和包">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../async/readme.html" class="navigation navigation-next " aria-label="Next page: Python异步">
+                <a href="except.html" class="navigation navigation-next " aria-label="Next page: 异常">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -581,7 +680,7 @@ log()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"闭包","level":"1.2.3","depth":2,"next":{"title":"Python异步","level":"1.3","depth":1,"path":"async/readme.md","ref":"async/readme.md","articles":[{"title":"计算机基础","level":"1.3.1","depth":2,"path":"async/base.md","ref":"async/base.md","articles":[]},{"title":"多线程","level":"1.3.2","depth":2,"path":"async/threading.md","ref":"async/threading.md","articles":[]},{"title":"多进程","level":"1.3.3","depth":2,"path":"async/multiprocess.md","ref":"async/multiprocess.md","articles":[]},{"title":"协程","level":"1.3.4","depth":2,"path":"async/asyncio.md","ref":"async/asyncio.md","articles":[]}]},"previous":{"title":"面向对象","level":"1.2.2","depth":2,"path":"python/chapter2.md","ref":"python/chapter2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"python/chapter3.md","mtime":"2020-05-15T00:29:19.953Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T00:34:34.190Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"闭包","level":"1.2.6","depth":2,"next":{"title":"异常","level":"1.2.7","depth":2,"path":"python/except.md","ref":"python/except.md","articles":[]},"previous":{"title":"模块和包","level":"1.2.5","depth":2,"path":"python/module.md","ref":"python/module.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"python/decorator.md","mtime":"2020-05-15T03:12:19.344Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T03:43:07.307Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
