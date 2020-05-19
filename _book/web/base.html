@@ -69,7 +69,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../data/readme.html" />
+    <link rel="next" href="django.html" />
     
     
     <link rel="prev" href="network.html" />
@@ -369,6 +369,36 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.3" data-path="django.html">
+            
+                <a href="django.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="tornado.html">
+            
+                <a href="tornado.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    tornado
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -500,10 +530,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="wsgi">WSGI</h3>
+                                <h3 id="wsgiweb&#x548C;app&#x901A;&#x4FE1;&#x89C4;&#x8303;">WSGI(web&#x548C;app&#x901A;&#x4FE1;&#x89C4;&#x8303;)</h3>
 <p>web &#x5E94;&#x7528;&#x7684;&#x672C;&#x8D28;: &#x6D4F;&#x89C8;&#x5668;&#x53D1; HTTP &#x8BF7;&#x6C42;--&gt;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x8BF7;&#x6C42;&#xFF0C;&#x751F;&#x6210; HTML--&gt;&#x670D;&#x52A1;&#x5668;&#x628A; HTTP &#x54CD;&#x5E94;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;--&gt;&#x6D4F;&#x89C8;&#x5668;&#x63A5;&#x6536; HTTP &#x54CD;&#x5E94;&#xFF0C;&#x5E76;&#x5C55;&#x793A; HTML &#x6587;&#x6863;
-&#x7136;&#x540E;&#x63A5;&#x6536; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x89E3;&#x6790; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x54CD;&#x5E94; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x90FD;&#x662F;&#x5F88;&#x590D;&#x6742;&#x7684;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x719F;&#x6089; HTTP &#x89C4;&#x8303;&#x3002;&#x7136;&#x540E;&#x624D;&#x80FD;&#x518D;&#x6B64;&#x57FA;&#x7840;&#x4E0A;&#x5199;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x8FD9;&#x6837;&#x8D39;&#x65F6;&#x8D39;&#x529B;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x5E0C;&#x671B;&#x63A5;&#x89E6;&#x5230; TCP &#x8FDE;&#x63A5;&#x3001;HTTP &#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x683C;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x9700;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#xFF0C;&#x63D0;&#x4F9B;&#x63A5;&#x53E3;&#x4F9B;&#x6211;&#x4EEC;&#x8C03;&#x7528;&#x3002;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5C31;&#x662F; WSGI
-wsgiref &#x5C31;&#x662F; python &#x81EA;&#x5E26;&#x7684; web &#x670D;&#x52A1;&#x5668;</p>
+&#x7136;&#x540E;&#x63A5;&#x6536; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x89E3;&#x6790; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x54CD;&#x5E94; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x90FD;&#x662F;&#x5F88;&#x590D;&#x6742;&#x7684;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x719F;&#x6089; HTTP &#x89C4;&#x8303;&#x3002;&#x7136;&#x540E;&#x624D;&#x80FD;&#x518D;&#x6B64;&#x57FA;&#x7840;&#x4E0A;&#x5199;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x8FD9;&#x6837;&#x8D39;&#x65F6;&#x8D39;&#x529B;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x5E0C;&#x671B;&#x63A5;&#x89E6;&#x5230; TCP &#x8FDE;&#x63A5;&#x3001;HTTP &#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x683C;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x9700;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#xFF0C;&#x63D0;&#x4F9B;&#x63A5;&#x53E3;&#x4F9B;&#x6211;&#x4EEC;&#x8C03;&#x7528;&#x3002;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5C31;&#x662F; WSGI</p>
+<h3 id="uwsgi-&#x4E00;&#x79CD;&#x901A;&#x4FE1;&#x534F;&#x8BAE;&#xFF0C;&#x662F;uwsgi&#x670D;&#x52A1;&#x5668;&#x7684;&#x72EC;&#x5360;&#x534F;&#x8BAE;">uwsgi &#x4E00;&#x79CD;&#x901A;&#x4FE1;&#x534F;&#x8BAE;&#xFF0C;&#x662F;uWSGI&#x670D;&#x52A1;&#x5668;&#x7684;&#x72EC;&#x5360;&#x534F;&#x8BAE;</h3>
+<h3 id="uwsgi-web&#x670D;&#x52A1;&#x5668;">uWSGI web&#x670D;&#x52A1;&#x5668;</h3>
+<p>wsgiref &#x5C31;&#x662F; python &#x81EA;&#x5E26;&#x7684; web &#x670D;&#x52A1;&#x5668;</p>
 <h3 id="wsgiref-&#x6A21;&#x5757;">wsgiref &#x6A21;&#x5757;</h3>
 <h4 id="&#x7B80;&#x5355;&#x8D77;&#x4E2A;&#x670D;&#x52A1;">&#x7B80;&#x5355;&#x8D77;&#x4E2A;&#x670D;&#x52A1;</h4>
 <pre><code class="lang-py"><span class="hljs-keyword">from</span> wsgiref.simple_server <span class="hljs-keyword">import</span> make_server
@@ -766,7 +798,7 @@ app = Flask(__name__)
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span><span class="hljs-params">()</span>:</span>
     time.sleep(<span class="hljs-number">3</span>)
     print(os.getpid())
-    print(threading.current_thread().name)
+    print(threading.current_thread().ident)
     <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello world&quot;</span>
 
 <span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
@@ -779,7 +811,7 @@ app = Flask(__name__)
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hello</span><span class="hljs-params">(request)</span>:</span>
     time.sleep(<span class="hljs-number">3</span>)
     print(os.getpid())
-    print(threading.current_thread().name)
+    print(threading.current_thread().ident)
     <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;Hello world ! &quot;</span>)
 </code></pre>
 <p>torndao &#x9ED8;&#x8BA4;&#x662F;&#x5355;&#x8FDB;&#x7A0B;&#x5355;&#x7EBF;&#x7A0B;&#xFF0C;&#x4F46;&#x662F;&#x652F;&#x6301;&#x5F02;&#x6B65;</p>
@@ -851,7 +883,7 @@ print(time.time()-start)
                 </a>
                 
                 
-                <a href="../data/readme.html" class="navigation navigation-next " aria-label="Next page: 数据结构">
+                <a href="django.html" class="navigation navigation-next " aria-label="Next page: Django">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -862,7 +894,7 @@ print(time.time()-start)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"WSGI","level":"1.4.2","depth":2,"next":{"title":"数据结构","level":"1.5","depth":1,"path":"data/readme.md","ref":"data/readme.md","articles":[{"title":"排序","level":"1.5.1","depth":2,"path":"data/sort.md","ref":"data/sort.md","articles":[]},{"title":"查找","level":"1.5.2","depth":2,"path":"data/search.md","ref":"data/search.md","articles":[]},{"title":"链表","level":"1.5.3","depth":2,"path":"data/node.md","ref":"data/node.md","articles":[]},{"title":"递归","level":"1.5.4","depth":2,"path":"data/recursion.md","ref":"data/recursion.md","articles":[]}]},"previous":{"title":"计算机网络","level":"1.4.1","depth":2,"path":"web/network.md","ref":"web/network.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"web/base.md","mtime":"2020-05-15T00:25:19.717Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T03:54:13.312Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"WSGI","level":"1.4.2","depth":2,"next":{"title":"Django","level":"1.4.3","depth":2,"path":"web/django.md","ref":"web/django.md","articles":[]},"previous":{"title":"计算机网络","level":"1.4.1","depth":2,"path":"web/network.md","ref":"web/network.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","back-to-top-button","code","-lunr","-search","search-pro","splitter","ga","theme-comscore"],"styles":{"website":"website.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"back-to-top-button":{},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-141902433-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python_share","language":"zh-hans","gitbook":"*"},"file":{"path":"web/base.md","mtime":"2020-05-15T06:47:27.312Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-19T00:28:25.720Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,7 +1,108 @@
-反复想我不应该是一个无情的人，我明明是一个很积极向上的好青年。事实上我发现我是一个无趣的人，只是一直不愿意承认。
-明明很简单的事，到最后却无所作为，明明是幸福的事，到最后总是不了了之，明明不求大富大贵，到最后却换来"你不了解我".
-事后还觉得委屈，还找理由为自己的行为找理由。根本没有意思到自己已经伤害了自己最重要的人。不能这样了！要改变。
-之前认为生活不就是财米油盐嘛，是的!比例很重，但不是全部，是自己看的太重了，眼界小的只能看到这些。
-之前认为只要财米油盐充足，不就可以过的很幸福嘛，又错了，这是一个过程，是一场马拉松，不是一个瞬间，更没有一蹴而就，有的只有从始至终陪伴你的人。
-曾经对“仪式感”这个词很是不屑，现在刷新了对他的重新认识，仪式感：将日常生活过的讲究，目的:让自己感觉是在生活。
-懂了，20 多年来，一直都错了，没有对生活有最起码的尊重，感谢自己最亲爱的人一直陪伴着，希望接下来能对得起这份陪伴，不再有那”对不起“三个字。
+#### django
+
+##### 中间件方法
+process_request 请求进来时，常用权限认证
+process_view 匹配路由后，准备执行view时
+process_exceptiion 异常时执行
+process_response 请求有相应时
+process_template_responseprocess 模版渲染时执行
+
+##### queryset常用操作
+filter
+get
+all
+count
+reverse
+order_by
+first
+last
+values
+values_list
+exclude
+distinct
+select_related
+prefetch_related
+
+
+##### model加载方式
+django默认采用懒加载的方式，只有在调用时才执行
+- select_related一对多或者一对一
+
+- prefetch_related多对多或者多对一
+
+##### 如何设置自动更新
+- auto_now每次save都进行更新
+
+- auto_now_add只有在创建时更新
+
+##### F对象和Q对象
+- Q对象:组合多个查询条件
+
+- F对象:将python操作映射成sql操作
+
+##### 如何读写分离
+- 手动操作(using)
+
+- 自动(通过修改配置)
+
+
+##### Django如何虚拟化model
+
+```python
+from django.db import models
+class Base(models.Model):
+    # ...
+    class Meta:
+        abstract = True
+
+```
+
+##### django-debug-toolbar调试工具
+```python
+# urls.py
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls import url
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('demo/', include('demo.urls'))
+]
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        url(r'__debug__/', include(debug_toolbar.urls))
+    ] + urlpatterns
+
+```
+```python
+# settings.py
+INSTALLED_APPS = [
+    # ...
+    'debug_toolbar',
+    # ...
+]
+
+MIDDLEWARE = [
+    # ...
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # ...
+]
+INTERNAL_IPS = ['127.0.0.1']
+
+```
+
+##### django与celery结合
+
+这是一个小demo
+[DEMO](https://github.com/27ban/django_learn)
+
+
+#### django-rest-framework
+1. 权限
+2. 视图
+3. 分页
+4. 序列化
+5. 访问限制
+
+

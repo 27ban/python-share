@@ -17,6 +17,8 @@
 * [Web框架](web/readme.md)
     * [计算机网络](web/network.md)
     * [WSGI](web/base.md)
+    * [Django](web/django.md)
+    * [tornado](web/tornado.md)
 * [数据结构](data/readme.md)
     * [排序](data/sort.md)
     * [查找](data/search.md)

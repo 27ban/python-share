@@ -1,8 +1,14 @@
-### WSGI
+### WSGI(web和app通信规范)
 
 web 应用的本质: 浏览器发 HTTP 请求-->服务器接收请求，生成 HTML-->服务器把 HTTP 响应给浏览器-->浏览器接收 HTTP 响应，并展示 HTML 文档
 然后接收 HTTP 请求，解析 HTTP 请求，响应 HTTP 请求，都是很复杂的，首先要熟悉 HTTP 规范。然后才能再此基础上写业务逻辑，这样费时费力，我们不希望接触到 TCP 连接、HTTP 原始请求和响应格式，所以是需要有一个专门的软件实现，提供接口供我们调用。这个接口就是 WSGI
+
+### uwsgi 一种通信协议，是uWSGI服务器的独占协议
+
+### uWSGI web服务器
+
 wsgiref 就是 python 自带的 web 服务器
+
 
 ### wsgiref 模块
 
@@ -297,7 +303,7 @@ app = Flask(__name__)
 def index():
     time.sleep(3)
     print(os.getpid())
-    print(threading.current_thread().name)
+    print(threading.current_thread().ident)
     return "hello world"
 
 if __name__=="__main__":
@@ -312,7 +318,7 @@ import time
 def hello(request):
     time.sleep(3)
     print(os.getpid())
-    print(threading.current_thread().name)
+    print(threading.current_thread().ident)
     return HttpResponse("Hello world ! ")
 ```
 
